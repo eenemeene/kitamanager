@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-kitamanager"
+authors = [
+    {name = "Thomas Bechtold", email = "thomasbechtold@jpberlin.de"},
+]
+description = "Software to manage a Kindergarten"
+readme = "README.rst"
+requires-python = ">=3.9"
+keywords = ["Kita", "Berlin"]
+license = {text = "GPL-3.0-or-later"}
+classifiers = [
+    "Framework :: Django",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "django",
+    "pyyaml",
+    "mysqlclient",
+    "psycopg2",
+    "python-dateutil",
+    "openpyxl",
+    "excel-formulas-calculator",
+    "djangorestframework",
+    "markdown",
+    "django-filter",
+    "django-cors-headers",
+    "django-debug-toolbar",
+
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+tests = ["flake8", "pytest-django",]

@@ -1,0 +1,34 @@
+{% extends "kitamanager/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <div class="box">
+    <h5 class="title">
+      {{ object_list.count }} {% translate "employee payment plans" %}
+    </h5>
+    <div class="table-container">
+      <table class="table is-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>{% translate "name" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for obj in object_list %}
+          <tr>
+            <td>
+              <a class="button is-link is-small is-outlined" href="{% url 'kitamanager:employeepayment-detail' obj.name %}">
+                {% translate "details" %}
+              </a>
+            </td>
+            <td>{{ obj.name }}</td>
+          </tr>
+          {% endfor %}
+        <tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}
+
+

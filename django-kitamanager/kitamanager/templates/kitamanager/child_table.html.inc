@@ -1,0 +1,44 @@
+{% load i18n %}
+{% load kitamanagertags %}
+<div class="table-container">
+  <table class="table is-striped is-hoverable">
+    <thead>
+      <tr>
+        <th>
+        </th>
+        <th>{% translate "last name" %}</th>
+        <th>{% translate "first name" %}</th>
+        <th>{% translate "age" %}</th>
+        <th>{% translate "area" %}</th>
+        <th>{% translate "pay plan" %}</th>
+        <th>{% translate "pay tags" %}</th>
+        <th>{% translate "payment (€/month)" %}</th>
+        <th>{% translate "required employee in %" %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for obj in object_list %}
+      <tr>
+        <td>
+          <a class="button is-link is-small is-outlined" href="{% url 'admin:kitamanager_employee_change' obj.person.pk %}">{% translate "edit" %}</a>
+          <a class="button is-link is-small is-outlined" href="{{ obj.person.get_absolute_url }}">{% translate "details" %}</a>
+        </td>
+        <td>{{ obj.person.last_name }}</td>
+        <td>{{ obj.person.first_name }}</td>
+        <td>{{ obj.person|age:historydate }}</td>
+        <td>{{ obj.area.name }}</td>
+        <td><a href="{{ obj.pay_plan.get_absolute_url }}">{{ obj.pay_plan.name }}</a></td>
+        <td>
+          <div class="tags">
+            {% for tag in obj.pay_tags %}
+            <span class="tag is-medium">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </td>
+        <td>{{ obj|payment:historydate|floatformat:"2"|default:"-" }} €</td>
+        <td>{{ obj|requirement:historydate|floatformat:"3"|default:"-" }}</td>
+      </tr>
+      {% endfor %}
+    <tbody>
+  </table>
+</div>

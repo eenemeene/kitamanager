@@ -1,0 +1,20 @@
+{% extends "kitamanager/base.html" %}
+{% load i18n %}
+{% block content %}
+
+<div class="box">
+  <h5 class="title">
+    {{ object_list }}
+  </h5>
+  
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
+
+</div>
+
+{% endblock %}
+

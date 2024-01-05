@@ -1,0 +1,60 @@
+{% extends "kitamanager/base.html" %}
+{% load i18n %}
+{% block content %}
+
+<div class="box">
+  <div class="content">
+    <h1 class="title">
+      {{ object.first_name }} {{ object.last_name }}
+      <a class="button is-link is-small is-outlined" href="{% url 'admin:kitamanager_employee_change' object.pk %}">{% translate "edit" %}</a>
+    </h1>
+    <p>
+      {% translate "hiring date" %}: {{ object.begin_date }}
+      </p>
+    <h2 class="subtitle">
+      {% translate "contracts" %}
+    </h2>
+    <div class="table-container">
+      <table class="table is-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>{% translate "from" %}</th>
+            <th>{% translate "to" %}</th>
+            <th>{% translate "pay plan" %}</th>
+            <th>{% translate "pay group" %}</th>
+            <th>{% translate "pay level" %}</th>
+            <th>{% translate "area" %}</th>
+            <th>{% translate "qualification" %}</th>
+            <th>{% translate "children (hours/week)" %}</th>
+            <th>{% translate "management (hours/week)" %}</th>
+            <th>{% translate "team (hours/week)" %}</th>
+            <th>{% translate "misc (hours/week)" %}</th>
+            <th>{% translate "total (hours/week)" %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for obj in object.contracts.all %}
+          <tr>
+            <td>
+            </td>
+            <td>{{ obj.date.lower }}</td>
+            <td>{{ obj.date.upper }}</td>
+            <td><a href="{{ obj.pay_plan.get_absolute_url }}">{{ obj.pay_plan.name }}</a></td>
+            <td>{{ obj.pay_group }}</td>
+            <td>{{ obj.pay_level }}</td>
+            <td>{{ obj.area.name }}</td>
+            <td>{{ obj.qualification.name }}</td>
+            <td>{{ obj.hours_child }}</td>
+            <td>{{ obj.hours_management }}</td>
+            <td>{{ obj.hours_team }}</td>
+            <td>{{ obj.hours_misc }}</td>
+            <td>{{ obj.hours_total }}</td>
+          </tr>
+          {% endfor %}
+        <tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

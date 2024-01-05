@@ -1,0 +1,14 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script>
+  async function loadChart(chart, url) {
+      // load the given data from the url and update the chart
+      const response = await fetch(url);
+      const json = await response.json();
+
+      chart.options.title.text = json.title;
+      chart.options.title.display = true;
+      chart.data.labels = json.data.labels;
+      chart.data.datasets = json.data.datasets;
+      chart.update();
+  }
+</script>

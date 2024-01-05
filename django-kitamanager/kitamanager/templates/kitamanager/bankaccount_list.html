@@ -1,0 +1,31 @@
+{% extends "kitamanager/base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% include "kitamanager/historydate_form.html.inc" %}
+
+<div class="box">
+  <h5 class="title">
+    {% blocktranslate %}
+    Bank account balance
+    {% endblocktranslate %}
+    <a class="button is-link is-small is-outlined" href="{% url 'admin:bankaccountentry-import' %}">{% translate "import" %}</a>
+  </h5>
+  <div class="notification is-info is-light">
+    {% blocktranslate %}
+    Sum of all bank account balances (in €) over the last months
+    {% endblocktranslate %}
+  </div>
+  <canvas id="bankAccountSumBalanceByMonthChart"></canvas>
+</div>
+
+<script>
+  {% include "kitamanager/bankaccount_charts_sum_balance_by_month.js" %}
+  window.onload = function() {
+      bankaccount_sum_balance_by_month('{{ historydate|date:"Y-m-d" }}');
+  }  
+</script>
+
+{% endblock %}
+
+
