@@ -1,0 +1,42 @@
+{% extends "kitamanager/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <div class="box">
+    <h5 class="title">
+      {% translate "childreen payments for plan " %}{{ plan.name }}
+    </h5>
+
+    {% for table in object_list %}
+    <div class="box">
+    <h6 class="subtitle">
+      {{ table.date.lower|date:"SHORT_DATE_FORMAT" }} - {{ table.date.upper|date:"SHORT_DATE_FORMAT" }}
+    </h6>
+    {% if table.comment %}
+    <p>
+      {{ table.comment|safe }}
+    </p>
+    {% endif %}
+    <table class="table is-striped">
+        <tr>
+          <th>{% translate "child age" %}</th>
+          <th>{% translate "propery name" %}</th>
+          <th>{% translate "pay income (in €)" %}</th>
+          <th>{% translate "requirement (employee in %)" %}</th>
+          <th>{% translate "comment" %}</th>
+        </tr>
+        {% for table_entry in table.entries.all %}
+        <tr>
+          <td>{{ table_entry.age.lower }} - {{ table_entry.age.upper }}</td>
+          <td>{{ table_entry.name }}</td>
+          <td>{{ table_entry.pay }}</td>
+          <td>{{ table_entry.requirement }}</td>
+          <td>{{ table_entry.comment }}</td>
+        </tr>
+            
+    {% endfor %}
+    </table>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

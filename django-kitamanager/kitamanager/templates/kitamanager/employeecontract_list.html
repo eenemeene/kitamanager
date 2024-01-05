@@ -1,0 +1,49 @@
+{% extends "kitamanager/base.html" %}
+{% load i18n %}
+{% block content %}
+
+<div class="columns">
+  <div class="column is-3">
+    <div class="box">
+      <h5 class="title">
+        {% blocktranslate %}
+        Employee count grouped by area
+        {% endblocktranslate %}
+      </h5>
+      <div class="notification is-info is-light">
+        {% blocktranslate %}
+        The number of employees grouped by area
+        {% endblocktranslate %}
+      </div>
+      <canvas id="employeeContractGroupByAreaChart"></canvas>
+    </div>
+  </div>
+  <div class="column is-3">
+    <div class="box">
+      <h5 class="title">
+        Wochenstunden per Bereich
+      </h5>
+      <div class="notification is-info is-light">
+        Die Anzahl aller Wochenstunden (inkl. Leitung) aller Mitarbeiter aufgeteilt nach Bereich
+      </div>
+      <canvas id="MitarbeiterStundenSummeProBereich"></canvas>
+    </div>
+  </div>
+</div>
+
+
+<div class="box">
+  <h5 class="title">
+    {{ object_list.count }} {% translate "employees" %}
+  </h5>
+  {% include "kitamanager/employeecontract_table.html.inc" with object_list=object_list %}
+</div>
+
+
+
+
+
+<script>
+  {% include "kitamanager/employeecontract-charts-by-area.js" %}
+</script>
+{% endblock %}

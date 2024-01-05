@@ -1,0 +1,204 @@
+---
+# That data is from the Berliner Senat and reflects what a Kita gets paid for different
+# childs
+-
+  to: '2060-01-01'
+  from: '2023-03-01'
+  entries:
+    -
+      age: [0,8]
+      properties:
+        'base':
+          'payment': 0
+          # leitungsanteil
+          'requirement': 0.0118
+          'comment': 'Leitungsanteil'
+        'integration a':
+          'payment': 1423.62
+          'requirement': 0.25 
+        'integration b':
+          'payment': 2840.85
+          'requirement': 0.5
+        'ndh':
+          'payment': 89.00
+          'requirement': 0.017
+        'qm':
+          'payment': 52.36
+          'requirement': 0.01
+    - age: [0,2]
+      properties:
+        'ganztag erweitert':
+          'payment': 1743.07
+          'requirement': 0.276
+        'ganztag':
+          'payment': 1668.47
+          'requirement': 0.261
+        'teilzeit':
+          'payment': 1340.19
+          'requirement': 0.195
+        'halbtag':
+          'payment': 1066.64
+          'requirement': 0.14
+    - age: [2,3]
+      properties:
+        'ganztag erweitert':
+          'payment': 1469.52
+          'requirement': 0.221
+        'ganztag':
+          'payment': 1394.91
+          'requirement': 0.206
+        'teilzeit':
+          'payment': 1181.04
+          'requirement': 0.163
+        'halbtag':
+          'payment': 977.11
+          'requirement': 0.122
+    - age: [3,8]
+      properties:
+        'ganztag erweitert':
+          'payment': 987.06
+          'requirement': 0.124
+        'ganztag':
+          'payment': 912.46
+          'requirement': 0.109
+        'teilzeit':
+          'payment': 812.98
+          'requirement': 0.089
+        'halbtag':
+          'payment': 718.49
+          'requirement': 0.07
+
+-
+  to: '2023-03-01'
+  from: '2023-01-01'
+  comment: |
+    Enthealt von Januar 2023 bis Maerz 2023 die Energiekostenpauschale
+  entries:
+    -
+      age: [0,8]
+      properties:
+        'base':
+          'payment': 0
+          # leitungsanteil
+          'requirement': 0.0118
+        'integration a':
+          'payment': 1423.62
+          'requirement': 0.25 
+        'integration b':
+          'payment': 2840.85
+          'requirement': 0.5
+        'ndh':
+          'payment': 89.00
+          'requirement': 0.017
+        'qm':
+          'payment': 52.36
+          'requirement': 0.01
+    - age: [0,2]
+      properties:
+        'ganztag erweitert':
+          'payment': 1743.07
+          'requirement': 0.276
+        'ganztag':
+          'payment': 1668.47
+          'requirement': 0.261
+        'teilzeit':
+          'payment': 1340.19
+          'requirement': 0.195
+        'halbtag':
+          'payment': 1066.64
+          'requirement': 0.14
+    - age: [2,3]
+      properties:
+        'ganztag erweitert':
+          'payment': 1469.52
+          'requirement': 0.221
+        'ganztag':
+          'payment': 1394.91
+          'requirement': 0.206
+        'teilzeit':
+          'payment': 1181.04
+          'requirement': 0.163
+        'halbtag':
+          'payment': 977.11
+          'requirement': 0.122
+    - age: [3,8]
+      properties:
+        'ganztag erweitert':
+          'payment': 987.06
+          'requirement': 0.124
+        'ganztag':
+          'payment': 912.46
+          'requirement': 0.109
+        'teilzeit':
+          'payment': 812.98
+          'requirement': 0.089
+        'halbtag':
+          'payment': 718.49
+          'requirement': 0.07
+
+-
+  to: '2023-01-01'
+  from: '2022-01-01'
+  entries:
+    -
+      age: [0,8]
+      properties:
+        'base':
+          'payment': 0
+          # leitungsanteil
+          'requirement': 0.0118
+        'integration a':
+          'payment': 1415.01
+          'requirement': 0.25
+        'integration b':
+          'payment': 2842.13
+          'requirement': 0.5
+        'ndh':
+          'payment': 88.64
+          'requirement': 0.017
+        'qm':
+          'payment': 52.14
+          'requirement': 0.01
+    - age: [0,2]
+      properties:
+        'ganztag erweitert':
+          'payment': 1714.72
+          'requirement': 0.276
+        'ganztag':
+          'payment': 1640.43
+          'requirement': 0.261
+        'teilzeit':
+          'payment': 1313.52
+          'requirement': 0.195
+        'halbtag':
+          'payment': 1014.09
+          'requirement': 0.14
+    - age: [2,3]
+      properties:
+        'ganztag erweitert':
+          'payment': 1442.30
+          'requirement': 0.221
+        'ganztag':
+          'payment': 1368.00
+          'requirement': 0.206
+        'teilzeit':
+          'payment': 1155.01
+          'requirement': 0.163
+        'halbtag':
+          'payment': 951.93
+          'requirement': 0.122
+    - age: [3,8]
+      properties:
+        'ganztag erweitert':
+          'payment': 961.84
+          'requirement': 0.124
+        'ganztag':
+          'payment': 887.54
+          'requirement': 0.109
+        'teilzeit':
+          'payment': 788.47
+          'requirement': 0.089
+        'halbtag':
+          'payment': 694.36
+          'requirement': 0.07
+    

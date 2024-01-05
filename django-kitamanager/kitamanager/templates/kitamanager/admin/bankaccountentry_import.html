@@ -1,0 +1,22 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% block content %}
+<p>
+  {% blocktranslate %}
+  The .xlsx files are provided by Nicole on a monthly base
+  {% endblocktranslate %}
+</p>
+
+{% if form.subject.errors %}
+<ol>
+  {% for error in form.subject.errors %}
+  <li><strong>{{ error|escape }}</strong></li>
+  {% endfor %}
+</ol>
+{% endif %}
+<form enctype="multipart/form-data" action="{% url 'admin:bankaccountentry-import' %}" method="post">
+  {% csrf_token %}
+  {{ form.as_div }}
+  <input type="submit" value={% translate "save" %}>
+</form>
+{% endblock %}

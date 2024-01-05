@@ -1,0 +1,37 @@
+{% extends "kitamanager/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <div class="box">
+    <h5 class="title">
+      {% translate "employee payments for plan " %}{{ plan.name }}
+    </h5>
+
+    {% for table in object_list %}
+    <div class="box">
+    <h6 class="subtitle">
+      {{ table.date.lower|date:"SHORT_DATE_FORMAT" }} - {{ table.date.upper|date:"SHORT_DATE_FORMAT" }} ({{ table.hours }} {%translate "hours/week" %})
+    </h6>
+    {% regroup table.entries.all|dictsortreversed:"pay_group" by pay_group as by_pay_group %}
+    <table class="table is-striped">
+        <tr>
+          <th>{% translate "group/level" %}</th>
+          {% with by_pay_group|first as pg %}
+          {% for x in pg.list reversed %}
+          <th>{{ x.pay_level }}</th>
+          {% endfor %}
+          {% endwith %}
+        </tr>
+        {% for pg in by_pay_group %}
+        <tr>
+          <th>{{ pg.grouper }}</th>
+          {% for x in pg.list reversed %}
+          <td>{{ x.salary }} €</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
