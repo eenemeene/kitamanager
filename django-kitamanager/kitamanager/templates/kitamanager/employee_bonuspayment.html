@@ -1,0 +1,58 @@
+{% extends "kitamanager/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="box">
+  <h5 class="title">
+    {% translate "Bonus payment calculator" %}
+  </h5>
+  <div class="notification is-info is-light">
+    {% blocktranslate %}
+    The bonus payment calculator can be used, to calculate a yearly bonus payment at the end of the year.
+    Only employees with a valid contact at the end of the year (31. december) will be listed here.
+    {% endblocktranslate %}
+  </div>
+  <div class="box">
+    <form action="." method="get">
+      {{ form }}
+      <button type="submit" class="button is-primary is-small is-outlined">{% translate "apply" %}</button>
+    </form>
+  </div>
+  <div class="box">
+    {% translate "Total pay for all employees would be" %}: <span class="tag is-primary is-large">{{ pay_total_all|floatformat:2 }} €</span>
+  </div>
+  <div class="table-container">
+    <table class="table is-striped">
+      <thead>
+        <tr>
+          <th>{% translate "name" %}</th>
+          <th>{% translate "January" %}</th>
+          <th>{% translate "February" %}</th>
+          <th>{% translate "March" %}</th>
+          <th>{% translate "April" %}</th>
+          <th>{% translate "May" %}</th>
+          <th>{% translate "June" %}</th>
+          <th>{% translate "July" %}</th>
+          <th>{% translate "August" %}</th>
+          <th>{% translate "September" %}</th>
+          <th>{% translate "October" %}</th>
+          <th>{% translate "November" %}</th>
+          <th>{% translate "December" %}</th>
+          <th>{% translate "total" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for name, data in data.items %}
+        <tr>
+          <td>{{ name }}</td>
+          {% for spm in data.by_month %}
+          <td>{{spm.pay|floatformat:2}} € <span class="tag is-small">({{ spm.hours }} / {{ spm.hours_fulltime }} )</span></td>
+          {% endfor %}
+          <td class="tag is-primary is-medium">{{ data.total|floatformat:2 }} €</td>
+        </tr>
+        {% endfor %}
+      <tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

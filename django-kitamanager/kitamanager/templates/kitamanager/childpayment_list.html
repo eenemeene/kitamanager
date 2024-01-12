@@ -1,0 +1,42 @@
+{% extends "kitamanager/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="box">
+  <h5 class="title">
+    {{ object_list.count }} {% translate "child payment plans" %}
+  </h5>
+  <div class="notification is-info is-light">
+    {% blocktranslate %}
+    child payment plans match properties stored for each child against
+    a selected payment plan for each child.
+    Eg. for Berlin, a payment plan follows the amount of money the Berliner Senat
+    pays for each child based on different properties.
+    {% endblocktranslate %}
+  </div>
+  <div class="table-container">
+    <table class="table is-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>{% translate "name" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for obj in object_list %}
+        <tr>
+          <td>
+            <a class="button is-link is-small is-outlined" href="{% url 'kitamanager:childpayment-detail' obj.name %}">
+              {% translate "details" %}
+            </a>
+          </td>
+          <td>{{ obj.name }}</td>
+        </tr>
+        {% endfor %}
+      <tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+

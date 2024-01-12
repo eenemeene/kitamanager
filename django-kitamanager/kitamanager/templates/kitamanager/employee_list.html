@@ -1,0 +1,107 @@
+{% extends "kitamanager/base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% include "kitamanager/historydate_form.html.inc" %}
+<div class="box">
+  <div class="columns">
+    <div class="column is-narrow">
+      <div class="box">
+        <h5 class="title">
+          {% translate "employee summary" %}
+        </h5>
+        <div class="notification is-info is-light">
+          {% blocktranslate %}
+          child and team hours count on the personnel key required by the Berliner Senat.</br>
+          management and misc hours do not count on the personnel key.</br>
+          {% endblocktranslate %}
+        </div>
+        <table class="table is-striped is-fullwidth">
+          <tr>
+            <th>{% translate "count" %}</th>
+            <td>{{ object_list.count }}</td>
+          </tr>
+          <tr>
+            <th>{% translate "∑ child" %}</th>
+            <td>{{ sum_hours.hours_child_sum|floatformat:2 }} {% translate "h/week" %}</td>
+          </tr>
+          <tr>
+            <th>{% translate "∑ management" %}</th>
+            <td>{{ sum_hours.hours_management_sum|floatformat:2 }} {% translate "h/week" %}</td>
+          </tr>
+          <tr>
+            <th>{% translate "∑ team" %}</th>
+            <td>{{ sum_hours.hours_team_sum|floatformat:2 }} {% translate "h/week" %}</td>
+          </tr>
+          <tr>
+            <th>{% translate "∑ misc" %}</th>
+            <td>{{ sum_hours.hours_misc_sum|floatformat:2 }} {% translate "h/week" %}</td>
+          </tr>
+          <tr>
+            <th>{% translate "∑ total" %}</th>
+            <td>{{ sum_hours.hours_sum|floatformat:2 }} {% translate "h/week" %}</td>
+          </tr>
+          <tr>
+            <th>{% translate "∑ salary" %}</th>
+            <td>{{ sum_salaries|floatformat:2 }} €</td>
+          </tr>
+          <tr>
+            <th>{% translate "∑ salary plus additional employer costs" %} ({{ salary_employer_addition|floatformat:1 }}%)</th>
+            <td>{{ sum_salaries_plus_employer_addition|floatformat:2 }} €</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="column is-narrow">
+      <div class="box">
+        <h5 class="title">
+          {% blocktranslate %}
+            employee count grouped by area
+          {% endblocktranslate %}
+        </h5>
+        <div class="notification is-info is-light">
+          {% blocktranslate %}
+            The number of employees grouped by area
+          {% endblocktranslate %}
+        </div>
+        <canvas id="employeeContractCountGroupByAreaChart"></canvas>
+      </div>
+    </div>
+    <div class="column is-narrow">
+      <div class="box">
+        <h5 class="title">
+          {% blocktranslate %}
+          hours/week grouped by area
+          {% endblocktranslate %}
+        </h5>
+        <div class="notification is-info is-light">
+          {% blocktranslate %}
+          The number of weekly hours (included all type of hours)</br>
+          of all employees grouped by area
+          {% endblocktranslate %}
+        </div>
+        <canvas id="employeeContractHoursGroupByAreaChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="box">
+  <h5 class="title">
+    {{ object_list.count }} {% translate "employees" %} ({{ historydate }})
+  </h5>
+  {% include "kitamanager/employeecontract_table.html.inc" with object_list=object_list %}
+</div>
+
+<script>
+  {% include "kitamanager/employeecontract_charts_count_group_by_area.js" %}
+  {% include "kitamanager/employeecontract_charts_hours_group_by_area.js" %}
+  window.onload = function() {
+      employee_contract_hours_group_by_area('{{ historydate|date:"Y-m-d" }}');
+      employee_contract_count_group_by_area('{{ historydate|date:"Y-m-d" }}');
+  }  
+</script>
+{% endblock %}
+
+

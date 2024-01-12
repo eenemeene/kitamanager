@@ -1,0 +1,10 @@
+export KITAMANAGER_DB_ENGINE=django.db.backends.postgresql
+export KITAMANAGER_DB_NAME=kitamanager
+export KITAMANAGER_DB_USER=kitamanager
+export KITAMANAGER_DB_PASSWORD=mysecretpassword
+export KITAMANAGER_DB_HOST=127.0.0.1
+export KITAMANAGER_DB_PORT=5432
+export KITAMANAGER_DEBUG=1
+export KITAMANAGER_DEBUG_TOOLBAR=1
+export KITAMANAGER_SECRET_KEY=secret
+export KITAMANAGER_ALLOWED_HOSTS=127.0.0.1,localhost

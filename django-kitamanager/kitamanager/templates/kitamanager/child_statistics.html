@@ -1,0 +1,46 @@
+{% extends "kitamanager/base.html" %}
+{% load i18n %}
+
+{% block content %}
+{% include "kitamanager/historydate_form.html.inc" %}
+
+
+<div class="box">
+  <h5 class="title">
+    {% blocktranslate %}
+    children count by month
+    {% endblocktranslate %}
+  </h5>
+  <div class="notification is-info is-light">
+    {% blocktranslate %}
+    The number of children over the years
+    {% endblocktranslate %}
+  </div>
+  <canvas id="childContractCountByMonthChart"></canvas>
+</div>
+
+<div class="box">
+  <h5 class="title">
+    {% blocktranslate %}
+    Calculated children payment vs. invoice
+    {% endblocktranslate %}
+  </h5>
+  <div class="notification is-info is-light">
+    {% blocktranslate %}
+    The calculated child payment is based on the payment plan used for each child.
+    The invoice is the money usually received from the government (Senatsabrechnung in Berlin)
+    {% endblocktranslate %}
+  </div>
+  <canvas id="childContractPayIncomeVsInvoiceChart"></canvas>
+</div>
+
+
+<script>
+  {% include "kitamanager/childcontract_charts_count_by_month.js" %}
+  {% include "kitamanager/childcontract_charts_pay_income_vs_invoice.js" %}
+  window.onload = function() {
+      child_contract_count_by_month('{{ historydate|date:"Y-m-d" }}');
+      child_contract_pay_income_vs_invoice('{{ historydate|date:"Y-m-d" }}');
+  }  
+</script>
+{% endblock %}
