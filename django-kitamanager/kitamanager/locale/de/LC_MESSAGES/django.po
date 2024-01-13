@@ -1,388 +1,517 @@
-# SOME DESCRIPTIVE TITLE.
+# Kitamanager
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Thomas Bechtold <thomasbechtold@jpberlin.de>, 2024.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-04 22:43+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Project-Id-Version: kitamanager\n"
+"Report-Msgid-Bugs-To: https://github.com/eenemeene/kitamanager\n"
+"POT-Creation-Date: 2024-01-13 07:36+0100\n"
+"PO-Revision-Date: 2024-01-13 08:21+0100\n"
+"Last-Translator: Thomas Bechtold <thomasbechtold@jpberlin.de>\n"
+"Language-Team: German <>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Gtranslator 45.3\n"
 
-#: admin.py:64 admin.py:185
+#: admin.py:62 admin.py:191 templates/kitamanager/child_list_future.html:22
 msgid "first name"
 msgstr "Vorname"
 
-#: admin.py:68 admin.py:189
+#: admin.py:66 admin.py:195 templates/kitamanager/child_list_future.html:21
 msgid "last name"
 msgstr "Nachname"
 
-#: admin.py:110
+#: admin.py:105
 #, python-brace-format
 msgid "Can not import file {value}. Wrong format?"
-msgstr ""
+msgstr "Datei {value} kann nicht importiert werden. Falsches Format?"
 
-#: admin.py:133
+#: admin.py:128
 msgid "Import bank account entries from .xls file"
-msgstr ""
+msgstr "Importiere Kontostand Einträge aus .xls Dateien"
 
-#: admin.py:147 views_bank.py:56
+#: admin.py:144
 #, python-brace-format
 msgid "bank account entry {baentry} imported successful"
-msgstr ""
+msgstr "Kontostand Eintrag {baentry} erfolgreich erstellt"
 
-#: admin.py:149 views_bank.py:58
+#: admin.py:146
 #, python-brace-format
 msgid "bank account entry {baentry} updated successful"
-msgstr ""
+msgstr "Konstand Eintrag {baentry} erfolgreich aktualisiert"
 
-#: admin.py:169
+#: admin.py:160
+#, python-format
+msgid "area %(area)s can not be selected for a child"
+msgstr "Bereich %(area)s kann nicht für ein Kind ausgewählt werden"
+
+#: admin.py:178
 #, python-format
 msgid ""
 "The pay tags '%(invalid_tags)s' are not valid. valid tags are "
 "'%(valid_tags)s'"
 msgstr ""
+"Die Tags '%(invalid_tags)s' sind ungültig. Gültige tags sind '%(valid_tags)s'"
 
 #: models/area.py:10
-msgid "Name of the area"
-msgstr ""
+msgid "name of the area"
+msgstr "Name des Bereichs"
 
 #: models/area.py:11
-msgid "Is this area educational (so an educator, not eg. a cook) ?"
-msgstr ""
+msgid "is this area educational (so an educator, not eg. a cook) ?"
+msgstr "Ist dies ein Bildungsbereich?"
 
-#: models/bank.py:64
-msgid "Start/End date for entry"
-msgstr ""
+#: models/bank.py:64 models/employee_payment.py:38
+msgid "start date for entry"
+msgstr "Start Datum"
 
-#: models/bank.py:65
+#: models/bank.py:65 models/employee_payment.py:39
+msgid "end date for entry"
+msgstr "Ende Datum"
+
+#: models/bank.py:66
 msgid "bank account balance"
-msgstr ""
+msgstr "Kontostand"
 
-#: models/child.py:23
+#: models/bank.py:99 models/person.py:133
+msgid "start date can not be greater or equal than end date"
+msgstr "Start Datum kann nicht größer oder gleich dem End Datum sein"
+
+#: models/child.py:22
 msgid "the voucher identifier"
-msgstr ""
+msgstr "Guscheinnummer"
 
-#: models/child.py:39
+#: models/child.py:70
 msgid ""
 "list of comma separated payment properties. Those must match the payment plan"
 msgstr ""
+"Liste mit komma separierten Bezahltags. Dieses müssen mit dem Bezahlplan "
+"übereinstimmen"
 
-#: models/child_payment.py:39
-msgid "Start/End date for the child payment table"
-msgstr ""
+#: models/child_payment.py:38 models/revenue.py:47
+msgid "start date"
+msgstr "Start Datum"
+
+#: models/child_payment.py:39 models/revenue.py:48
+msgid "end date"
+msgstr "Ende Datum"
+
+#: models/child_payment.py:72
+msgid "age (in years) range for this property"
+msgstr "Alterszeitraum (in Jahren) für diese Eigenschaft"
 
 #: models/child_payment.py:74
-msgid "age (in years) range for this property"
-msgstr ""
+msgid "property name"
+msgstr "Eigenschaftsname"
 
 #: models/child_payment.py:76
-msgid "property name"
-msgstr ""
-
-#: models/child_payment.py:78
 msgid "imcoming pay (in Euro) to get for this property"
-msgstr ""
+msgstr "Einnahmen (in Euro) für diese Eigenschaft"
 
-#: models/child_payment.py:81
+#: models/child_payment.py:79
 msgid "required employees in % (eg. 0.5 means half a person)"
-msgstr ""
+msgstr "Benötigtes Personal in Prozent (zB. 0.5 bedeutet eine halbe Stelle)"
 
-#: models/common.py:8
-#, python-format
-msgid "lower and upper date (%(value)s) can not be identical"
-msgstr ""
+#: models/employee.py:133
+msgid "qualification the employee has"
+msgstr "Qualifikation des Mitarbeiters"
 
-#: models/employee.py:114
-msgid "Qualification the employee has"
-msgstr ""
+#: models/employee.py:136 models/employee_payment.py:72
+#: templates/kitamanager/employee_detail.html:25
+msgid "pay group"
+msgstr "Bazahlgruppe"
 
-#: models/employee.py:118 models/employee_payment.py:71
-msgid "The pay group"
-msgstr ""
+#: models/employee.py:137 models/employee_payment.py:73
+#: templates/kitamanager/employee_detail.html:26
+msgid "pay level"
+msgstr "Bezahllevel"
 
-#: models/employee.py:121 models/employee_payment.py:74
-msgid "The pay level"
-msgstr ""
+#: models/employee.py:143
+msgid "working hours per week (children)"
+msgstr "Arbeitsstunden pro Woche (Kind)"
 
-#: models/employee.py:128
-msgid "Working hours per week (childreen)"
-msgstr ""
+#: models/employee.py:150
+msgid "working hours per week (management)"
+msgstr "Arbeitsstunden pro Woche (Leitung)"
 
-#: models/employee.py:135
-msgid "Working hours per week (management)"
-msgstr ""
+#: models/employee.py:157
+msgid "working hours per week (team)"
+msgstr "Arbeitsstunden pro Woche (Team)"
 
-#: models/employee.py:142
-msgid "Working hours per week (team)"
-msgstr ""
+#: models/employee.py:164
+msgid "working hours per week (miscellaneous)"
+msgstr "Arbeitsstunden pro Woche (Sonstiges)"
 
-#: models/employee.py:149
-msgid "Working hours per week (miscellaneous)"
-msgstr ""
-
-#: models/employee_payment.py:39
-msgid "Start/End date for the employee payment table"
-msgstr ""
-
-#: models/employee_payment.py:41
+#: models/employee_payment.py:40
 msgid "weekly working hours"
-msgstr ""
+msgstr "Arbeitsstunden pro Woche"
 
-#: models/employee_payment.py:81
+#: models/employee_payment.py:79
 msgid "monthly salary"
 msgstr "Gehalt pro Monat"
 
-#: models/person.py:21
-msgid "Optional comment"
-msgstr ""
+#: models/person.py:45
+msgid "optional comment"
+msgstr "Optionaler Kommentar"
 
-#: models/person.py:76
-msgid "Start/End date for the contract"
-msgstr ""
+#: models/person.py:103
+msgid "start date for the contract"
+msgstr "Begin Datum für den Vertrag"
 
-#: models/person.py:77
-msgid "Area where the person is"
-msgstr ""
+#: models/person.py:104
+msgid "end date for the contract"
+msgstr "Ende Datum für den Vertrag"
+
+#: models/person.py:105
+msgid "area where the person is"
+msgstr "Bereich"
+
+#: models/revenue.py:49
+msgid "pay (in Euro)"
+msgstr "Bezahlung (in Euro)"
 
 #: templates/kitamanager/admin/bankaccountentry_changelist.html:6
 msgid "import bankaccount entries"
-msgstr ""
+msgstr "Importiere Konstände"
 
 #: templates/kitamanager/admin/bankaccountentry_import.html:5
-msgid ""
-"\n"
-"  The .xlsx files are provided by Nicole on a monthly base\n"
-"  "
-msgstr ""
+msgid "The .xlsx files are provided by Nicole on a monthly base"
+msgstr "Die .xlsx Dateien werden von Nicole monatlich bereitgestellt"
 
 #: templates/kitamanager/admin/bankaccountentry_import.html:20
 msgid "save"
-msgstr ""
-
-#: templates/kitamanager/bankaccount_import.html:7
-msgid ""
-"\n"
-"    import bank account data\n"
-"    "
-msgstr ""
-
-#: templates/kitamanager/bankaccount_import.html:12
-msgid ""
-"\n"
-"    This is a import mechanism for importing bank account balance data from "
-"files like \"Kontostände 01.11.2023.xlsx\".\n"
-"    Those files are usually provided by Nicole.\n"
-"    "
-msgstr ""
-
-#: templates/kitamanager/bankaccount_import.html:21
-msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #: templates/kitamanager/bankaccount_list.html:9
-msgid ""
-"\n"
-"    Bank account balance\n"
-"    "
-msgstr ""
+msgid "Bank account balance"
+msgstr "Kontostand"
 
 #: templates/kitamanager/bankaccount_list.html:12
 msgid "import"
-msgstr ""
+msgstr "Importieren"
 
 #: templates/kitamanager/bankaccount_list.html:15
-msgid ""
-"\n"
-"    Sum of all bank account balances (in €) over the last months\n"
-"    "
-msgstr ""
+msgid "Sum of all bank account balances (in €) over the last months"
+msgstr "Summe aller Kontostände (in €) der letzten Monate"
 
 #: templates/kitamanager/base.html:7
 msgid "Kitamanager"
-msgstr ""
+msgstr "Kitaverwaltung"
 
 #: templates/kitamanager/base.html:26
 msgid "Employees"
-msgstr ""
+msgstr "Mitarbeiter"
 
-#: templates/kitamanager/base.html:30 templates/kitamanager/base.html:43
+#: templates/kitamanager/base.html:30 templates/kitamanager/base.html:46
 msgid "List"
-msgstr ""
+msgstr "Liste"
 
-#: templates/kitamanager/base.html:33 templates/kitamanager/base.html:46
+#: templates/kitamanager/base.html:33 templates/kitamanager/base.html:52
 msgid "Payment plans"
-msgstr ""
+msgstr "Bezahlplan"
 
-#: templates/kitamanager/base.html:39
+#: templates/kitamanager/base.html:36
+#: templates/kitamanager/employee_bonuspayment.html:7
+msgid "Bonus payment calculator"
+msgstr "Sonderzahlungsrechner"
+
+#: templates/kitamanager/base.html:42
 msgid "Children"
-msgstr ""
+msgstr "Kinder"
 
-#: templates/kitamanager/base.html:52
-msgid "Finance"
-msgstr ""
+#: templates/kitamanager/base.html:49
+msgid "Future"
+msgstr "Zukunft"
 
-#: templates/kitamanager/base.html:56
-msgid "bank accounts"
-msgstr ""
+#: templates/kitamanager/base.html:55
+msgid "Statistics"
+msgstr "Statistiken"
 
 #: templates/kitamanager/base.html:61
+msgid "Finance"
+msgstr "Finanzen"
+
+#: templates/kitamanager/base.html:65
+msgid "bank accounts"
+msgstr "Kontostände"
+
+#: templates/kitamanager/base.html:70
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 #: templates/kitamanager/child_detail.html:10
+#: templates/kitamanager/child_list_future.html:35
 #: templates/kitamanager/employee_detail.html:9
 msgid "edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #: templates/kitamanager/child_detail.html:13
+#: templates/kitamanager/child_list_future.html:14
 #: templates/kitamanager/employee_detail.html:15
 msgid "contracts"
-msgstr ""
+msgstr "Verträge"
 
 #: templates/kitamanager/child_detail.html:20
 #: templates/kitamanager/employee_detail.html:22
 msgid "from"
-msgstr ""
+msgstr "Von"
 
 #: templates/kitamanager/child_detail.html:21
 #: templates/kitamanager/employee_detail.html:23
 msgid "to"
-msgstr ""
+msgstr "Bis"
 
 #: templates/kitamanager/child_detail.html:22
+#: templates/kitamanager/child_list_future.html:24
 #: templates/kitamanager/employee_detail.html:27
 msgid "area"
-msgstr ""
+msgstr "Bereich"
 
 #: templates/kitamanager/child_detail.html:23
+#: templates/kitamanager/child_list_future.html:27
 #: templates/kitamanager/employee_detail.html:24
 msgid "pay plan"
-msgstr ""
+msgstr "Bezahlplan"
 
 #: templates/kitamanager/child_detail.html:24
+#: templates/kitamanager/child_list_future.html:28
 msgid "pay tags"
+msgstr "Bezahltags"
+
+#: templates/kitamanager/child_list.html:11
+msgid "children summary"
+msgstr "Kinder Zusammenfassung"
+
+#: templates/kitamanager/child_list.html:14
+msgid "FIXME"
 msgstr ""
 
-#: templates/kitamanager/child_list.html:9
-msgid "childreen"
+#: templates/kitamanager/child_list.html:20
+#: templates/kitamanager/employee_list.html:21
+msgid "count"
+msgstr "Summe"
+
+#: templates/kitamanager/child_list.html:24
+msgid "∑ payments"
+msgstr "∑ Bezahlung"
+
+#: templates/kitamanager/child_list.html:33
+msgid "children count grouped by area"
+msgstr "Anzahl Kinder per Bereich"
+
+#: templates/kitamanager/child_list.html:38
+msgid "The number of children grouped by area"
+msgstr "Die Anzahl der Kinder per Bereich"
+
+#: templates/kitamanager/child_list.html:51
+msgid "children"
+msgstr "Kinder"
+
+#: templates/kitamanager/child_list_future.html:11
+msgid "children starting after"
+msgstr "Kinder starten nach dem"
+
+#: templates/kitamanager/child_list_future.html:23
+msgid "age"
+msgstr "Alter"
+
+#: templates/kitamanager/child_list_future.html:25
+msgid "start"
+msgstr "Start"
+
+#: templates/kitamanager/child_list_future.html:26
+msgid "end"
+msgstr "End"
+
+#: templates/kitamanager/child_list_future.html:36
+#: templates/kitamanager/childpayment_list.html:30
+#: templates/kitamanager/employeepayment_list.html:22
+msgid "details"
+msgstr "Details"
+
+#: templates/kitamanager/child_statistics.html:10
+msgid "children count by month"
+msgstr "Kinder per Monat"
+
+#: templates/kitamanager/child_statistics.html:15
+msgid "The number of children over the years"
+msgstr "Die Anzahl der Kinder über die Jahre"
+
+#: templates/kitamanager/child_statistics.html:24 views_child.py:242
+msgid "Calculated children payment vs. invoice"
+msgstr "Berechnete Kinderbezahlung gegenüber Rechnungen"
+
+#: templates/kitamanager/child_statistics.html:29
+msgid ""
+"The calculated child payment is based on the payment plan used for each "
+"child. The invoice is the money usually received from the government "
+"(Senatsabrechnung in Berlin)"
 msgstr ""
+" Die kalkulierten Kinderzahlungen basieren auf den benutztem Bezahlplan für "
+"jedes Kind Die Rechnung kommt vom Senat"
 
 #: templates/kitamanager/childpayment_detail.html:7
-msgid "childreen payments for plan "
-msgstr ""
+msgid "children payments for plan "
+msgstr "Kinder Bezahlungen per Bezahlpläne"
 
 #: templates/kitamanager/childpayment_detail.html:22
 msgid "child age"
-msgstr ""
+msgstr "Alter Kind"
 
 #: templates/kitamanager/childpayment_detail.html:23
 msgid "propery name"
-msgstr ""
+msgstr "Eigenschaftsname"
 
 #: templates/kitamanager/childpayment_detail.html:24
 msgid "pay income (in €)"
-msgstr ""
+msgstr "Einnahmen (in €)"
 
 #: templates/kitamanager/childpayment_detail.html:25
 #, python-format
 msgid "requirement (employee in %%)"
-msgstr ""
+msgstr "Erfordernis (employee in %%)"
 
 #: templates/kitamanager/childpayment_detail.html:26
 msgid "comment"
-msgstr ""
+msgstr "Kommentar"
 
 #: templates/kitamanager/childpayment_list.html:7
 msgid "child payment plans"
-msgstr ""
+msgstr "Kind Bezahlpläne"
 
 #: templates/kitamanager/childpayment_list.html:10
 msgid ""
-"\n"
-"    child payment plans match properties stored for each child against\n"
-"    a selected payment plan for each child.\n"
-"    Eg. for Berlin, a payment plan follows the amount of money the Berliner "
-"Senat\n"
-"    pays for each child based on different properties.\n"
-"    "
+"child payment plans match properties stored for each child against a "
+"selected payment plan for each child. Eg. for Berlin, a payment plan follows "
+"the amount of money the Berliner Senat pays for each child based on "
+"different properties."
 msgstr ""
+" Kind Bezahlpläne basieren auf dem ausgewählten Bezahlplan für jedes Kind."
 
 #: templates/kitamanager/childpayment_list.html:22
+#: templates/kitamanager/employee_bonuspayment.html:28
 #: templates/kitamanager/employeepayment_list.html:14
 msgid "name"
-msgstr ""
+msgstr "Name"
 
-#: templates/kitamanager/childpayment_list.html:30
-#: templates/kitamanager/employeepayment_list.html:22
-msgid "details"
+#: templates/kitamanager/employee_bonuspayment.html:10
+msgid ""
+"The bonus payment calculator can be used, to calculate a yearly bonus "
+"payment at the end of the year. Only employees with a valid contact at the "
+"end of the year (31. december) will be listed here."
 msgstr ""
+" Der Sonderzahlungsrechner kann zur Berechnung eines jährlichen Bonus "
+"genutzt werden. Nur MitarbeiterInnen mit einem Vertrag am Ende des Jahres "
+"(31. Dezember) sind hier gelistet."
+
+#: templates/kitamanager/employee_bonuspayment.html:18
+msgid "apply"
+msgstr "Anwenden"
+
+#: templates/kitamanager/employee_bonuspayment.html:22
+msgid "Total pay for all employees would be"
+msgstr "Gesamtbetrag für alle MitarbeiterInnen wäre"
+
+#: templates/kitamanager/employee_bonuspayment.html:29 views_child.py:172
+msgid "January"
+msgstr "Januar"
+
+#: templates/kitamanager/employee_bonuspayment.html:30 views_child.py:173
+msgid "February"
+msgstr "Februar"
+
+#: templates/kitamanager/employee_bonuspayment.html:31 views_child.py:174
+msgid "March"
+msgstr "März"
+
+#: templates/kitamanager/employee_bonuspayment.html:32 views_child.py:175
+msgid "April"
+msgstr "April"
+
+#: templates/kitamanager/employee_bonuspayment.html:33 views_child.py:176
+msgid "May"
+msgstr "Mai"
+
+#: templates/kitamanager/employee_bonuspayment.html:34 views_child.py:177
+msgid "June"
+msgstr "Juni"
+
+#: templates/kitamanager/employee_bonuspayment.html:35 views_child.py:178
+msgid "July"
+msgstr "Juli"
+
+#: templates/kitamanager/employee_bonuspayment.html:36 views_child.py:179
+msgid "August"
+msgstr "August"
+
+#: templates/kitamanager/employee_bonuspayment.html:37 views_child.py:180
+msgid "September"
+msgstr "September"
+
+#: templates/kitamanager/employee_bonuspayment.html:38 views_child.py:181
+msgid "October"
+msgstr "October"
+
+#: templates/kitamanager/employee_bonuspayment.html:39 views_child.py:182
+msgid "November"
+msgstr "November"
+
+#: templates/kitamanager/employee_bonuspayment.html:40 views_child.py:183
+msgid "December"
+msgstr "December"
+
+#: templates/kitamanager/employee_bonuspayment.html:41
+msgid "total"
+msgstr "Gesamt"
 
 #: templates/kitamanager/employee_detail.html:12
 msgid "hiring date"
-msgstr ""
-
-#: templates/kitamanager/employee_detail.html:25
-msgid "pay group"
-msgstr ""
-
-#: templates/kitamanager/employee_detail.html:26
-msgid "pay level"
-msgstr ""
+msgstr "Einstellungsdatum"
 
 #: templates/kitamanager/employee_detail.html:28
 msgid "qualification"
-msgstr ""
+msgstr "Qualifikation"
 
 #: templates/kitamanager/employee_detail.html:29
-msgid "childreen (hours/week)"
-msgstr ""
+msgid "children (hours/week)"
+msgstr "Kinder (Stunden/Woche)"
 
 #: templates/kitamanager/employee_detail.html:30
 msgid "management (hours/week)"
-msgstr ""
+msgstr "Leitung (Stunden/Woche)"
 
 #: templates/kitamanager/employee_detail.html:31
 msgid "team (hours/week)"
-msgstr ""
+msgstr "Team (Stunden/Woche)"
 
 #: templates/kitamanager/employee_detail.html:32
 msgid "misc (hours/week)"
-msgstr ""
+msgstr "Sonstiges (Stunden/Woche)"
 
 #: templates/kitamanager/employee_detail.html:33
 msgid "total (hours/week)"
-msgstr ""
+msgstr "Gesamt (Stunden/Woche)"
 
 #: templates/kitamanager/employee_list.html:11
 msgid "employee summary"
-msgstr ""
+msgstr "Mitarbeiter Zusammenfassung"
 
 #: templates/kitamanager/employee_list.html:14
 msgid ""
-"\n"
-"          child and team hours count on the personnel key required by the "
-"Berliner Senat.</br>\n"
-"          management and misc hours do not count on the personnel key.</br>\n"
-"          "
+"child and team hours count on the personnel key required by the Berliner "
+"Senat.</br> management and misc hours do not count on the personnel key.</br>"
 msgstr ""
-
-#: templates/kitamanager/employee_list.html:21
-msgid "count"
-msgstr ""
+" Kinder und Team Stunden zählen zum Personalschlüssel. Leitungsstunden und "
+"sonstige Stunden nicht."
 
 #: templates/kitamanager/employee_list.html:25
 msgid "∑ child"
-msgstr ""
+msgstr "∑ Kind"
 
 #: templates/kitamanager/employee_list.html:26
 #: templates/kitamanager/employee_list.html:30
@@ -390,115 +519,153 @@ msgstr ""
 #: templates/kitamanager/employee_list.html:38
 #: templates/kitamanager/employee_list.html:42
 msgid "h/week"
-msgstr ""
+msgstr "h/Woche"
 
 #: templates/kitamanager/employee_list.html:29
 msgid "∑ management"
-msgstr ""
+msgstr "∑ Leitung"
 
 #: templates/kitamanager/employee_list.html:33
 msgid "∑ team"
-msgstr ""
+msgstr "∑ Team"
 
 #: templates/kitamanager/employee_list.html:37
 msgid "∑ misc"
-msgstr ""
+msgstr "∑ Sonstiges"
 
 #: templates/kitamanager/employee_list.html:41
 msgid "∑ total"
-msgstr ""
+msgstr "∑ Gesamt"
 
 #: templates/kitamanager/employee_list.html:45
 msgid "∑ salary"
-msgstr ""
+msgstr "∑ Gehalt"
 
 #: templates/kitamanager/employee_list.html:49
 msgid "∑ salary plus additional employer costs"
-msgstr ""
+msgstr "∑ Gehalt plus Arbeitgeberkosten"
 
 #: templates/kitamanager/employee_list.html:58
-msgid ""
-"\n"
-"            employee count grouped by area\n"
-"          "
-msgstr ""
+msgid "employee count grouped by area"
+msgstr "Anzahl MitarbeiterInnen per Bereich"
 
 #: templates/kitamanager/employee_list.html:63
-msgid ""
-"\n"
-"            The number of employees grouped by area\n"
-"          "
-msgstr ""
+#: templates/kitamanager/employeecontract_list.html:14
+msgid "The number of employees grouped by area"
+msgstr "Anzahl MitarbeiterInnen per Bereich"
 
 #: templates/kitamanager/employee_list.html:73
-msgid ""
-"\n"
-"          hours/week grouped by area\n"
-"          "
-msgstr ""
+msgid "hours/week grouped by area"
+msgstr "Stunden/Woche per Bereic"
 
 #: templates/kitamanager/employee_list.html:78
 msgid ""
-"\n"
-"          The number of weekly hours (included all type of hours)</br>\n"
-"          of all employees grouped by area\n"
-"          "
+"The number of weekly hours (included all type of hours)</br> of all "
+"employees grouped by area"
 msgstr ""
+"Die Anzahl der Wochenstunden (alle Typen) von allen MitarbeiterInnen per "
+"Bereich"
 
 #: templates/kitamanager/employee_list.html:92
 #: templates/kitamanager/employeecontract_list.html:37
 msgid "employees"
-msgstr ""
+msgstr "MitarbeiterInnen"
 
 #: templates/kitamanager/employeecontract_list.html:9
-msgid ""
-"\n"
-"        Employee count grouped by area\n"
-"        "
-msgstr ""
-
-#: templates/kitamanager/employeecontract_list.html:14
-msgid ""
-"\n"
-"        The number of employees grouped by area\n"
-"        "
-msgstr ""
+msgid "Employee count grouped by area"
+msgstr "Anzahl MitarbeiterInnen per Bereich"
 
 #: templates/kitamanager/employeepayment_detail.html:7
 msgid "employee payments for plan "
-msgstr ""
+msgstr "Mitarbeiter Bezahlplan"
 
 #: templates/kitamanager/employeepayment_detail.html:13
 msgid "hours/week"
-msgstr ""
+msgstr "Stunden/Woche"
 
-#: templates/kitamanager/employeepayment_detail.html:18
+#: templates/kitamanager/employeepayment_detail.html:23
 msgid "group/level"
-msgstr ""
+msgstr "Gruppe/Level"
 
 #: templates/kitamanager/employeepayment_list.html:7
 msgid "employee payment plans"
-msgstr ""
+msgstr "Mitarbeiter Bezahlpläne"
 
-#: views_bank.py:85
+#: views_bank.py:60
 #, python-brace-format
 msgid "monthly bank account balance sum in € (on {historydate})"
-msgstr ""
+msgstr "Summe monatliche Kontostände in € (am {historydate})"
 
-#: views_bank.py:90
+#: views_bank.py:65
 msgid "Balance (in €) over time"
-msgstr ""
+msgstr "Kontostand (in €) über die Zeit"
 
-#: views_employee.py:108
+#: views_child.py:142
+#, python-brace-format
+msgid "Children grouped by area (on {historydate}"
+msgstr "Kinder per Bereich (am {historydate}"
+
+#: views_child.py:147 views_employee.py:157 views_employee.py:189
+msgid "Count"
+msgstr "Anzahl"
+
+#: views_child.py:196
+msgid "Children count by month"
+msgstr "Kinder per Monat"
+
+#: views_child.py:218
+msgid "calculated child payment (in €)"
+msgstr "Berechnete Kindbezahlung (in €)"
+
+#: views_child.py:223
+#, python-format
+msgid "invoice %(invoice_name)s (in €)"
+msgstr "Rechnung %(invoice_name)s (in €)"
+
+#: views_employee.py:152
 #, python-brace-format
 msgid "Employees grouped by area (on {historydate}"
-msgstr ""
+msgstr "MitarbeiterInnen per Bereich (am {historydate})"
 
-#: views_employee.py:113 views_employee.py:144
-msgid "Count"
-msgstr ""
-
-#: views_employee.py:139
+#: views_employee.py:184
 #, python-brace-format
 msgid "Employee working hours grouped by area (on {historydate}"
-msgstr ""
+msgstr "Arbeitsstunden per Bereich (an {historydate})"
+
+#~ msgid ""
+#~ "\n"
+#~ "    Bank account balance\n"
+#~ "    "
+#~ msgstr ""
+#~ "\n"
+#~ " Kontostände \n"
+
+#~ msgid ""
+#~ "\n"
+#~ "    children count by month\n"
+#~ "    "
+#~ msgstr ""
+#~ "\n"
+#~ " Anzahl Kinder pro Monat\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "    Calculated children payment vs. invoice\n"
+#~ "    "
+#~ msgstr ""
+#~ "\n"
+#~ " Kalkulierte Kinderzahlungen gegenüber Rechnungen\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "            employee count grouped by area\n"
+#~ "          "
+#~ msgstr ""
+#~ "\n"
+#~ " Mitarbeiter per Bereich\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "            The number of employees grouped by area\n"
+#~ "          "
+#~ msgstr "Anzahl der MitarbeiterInnen per Bereich\n"
