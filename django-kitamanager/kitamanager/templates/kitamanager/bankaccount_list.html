@@ -6,13 +6,13 @@
 
 <div class="box">
   <h5 class="title">
-    {% blocktranslate %}
+    {% blocktranslate trimmed %}
     Bank account balance
     {% endblocktranslate %}
     <a class="button is-link is-small is-outlined" href="{% url 'admin:bankaccountentry-import' %}">{% translate "import" %}</a>
   </h5>
   <div class="notification is-info is-light">
-    {% blocktranslate %}
+    {% blocktranslate trimmed %}
     Sum of all bank account balances (in €) over the last months
     {% endblocktranslate %}
   </div>
