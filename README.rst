@@ -11,7 +11,7 @@ available employees and children.
 Documentation
 =============
 
-There is currently no documentation. This will be change in the future.
+The documentation can be found under https://kitamanager.readthedocs.io/de/latest/ .
 
 Report issues
 =============
