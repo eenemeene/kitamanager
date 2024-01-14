@@ -31,3 +31,4 @@ dynamic = ["version"]
 
 [project.optional-dependencies]
 tests = ["flake8", "pytest-django",]
+docs = ["Sphinx", "sphinx-rtd-theme"]
