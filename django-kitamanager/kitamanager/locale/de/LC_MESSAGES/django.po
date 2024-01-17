@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kitamanager\n"
-"Report-Msgid-Bugs-To: https://github.com/eenemeene/kitamanager\n"
-"POT-Creation-Date: 2024-01-13 07:36+0100\n"
-"PO-Revision-Date: 2024-01-13 08:21+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-17 20:15+0000\n"
+"PO-Revision-Date: 2024-01-17 21:22+0100\n"
 "Last-Translator: Thomas Bechtold <thomasbechtold@jpberlin.de>\n"
 "Language-Team: German <>\n"
 "Language: de\n"
@@ -18,39 +18,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Gtranslator 45.3\n"
 
-#: admin.py:62 admin.py:191 templates/kitamanager/child_list_future.html:22
+#: django-kitamanager/kitamanager/admin.py:62
+#: django-kitamanager/kitamanager/admin.py:191
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:22
+#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:10
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:10
 msgid "first name"
 msgstr "Vorname"
 
-#: admin.py:66 admin.py:195 templates/kitamanager/child_list_future.html:21
+#: django-kitamanager/kitamanager/admin.py:66
+#: django-kitamanager/kitamanager/admin.py:195
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:21
+#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:9
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:9
 msgid "last name"
 msgstr "Nachname"
 
-#: admin.py:105
+#: django-kitamanager/kitamanager/admin.py:105
 #, python-brace-format
 msgid "Can not import file {value}. Wrong format?"
 msgstr "Datei {value} kann nicht importiert werden. Falsches Format?"
 
-#: admin.py:128
+#: django-kitamanager/kitamanager/admin.py:128
 msgid "Import bank account entries from .xls file"
 msgstr "Importiere Kontostand Einträge aus .xls Dateien"
 
-#: admin.py:144
+#: django-kitamanager/kitamanager/admin.py:144
 #, python-brace-format
 msgid "bank account entry {baentry} imported successful"
 msgstr "Kontostand Eintrag {baentry} erfolgreich erstellt"
 
-#: admin.py:146
+#: django-kitamanager/kitamanager/admin.py:146
 #, python-brace-format
 msgid "bank account entry {baentry} updated successful"
 msgstr "Konstand Eintrag {baentry} erfolgreich aktualisiert"
 
-#: admin.py:160
+#: django-kitamanager/kitamanager/admin.py:160
 #, python-format
 msgid "area %(area)s can not be selected for a child"
 msgstr "Bereich %(area)s kann nicht für ein Kind ausgewählt werden"
 
-#: admin.py:178
+#: django-kitamanager/kitamanager/admin.py:178
 #, python-format
 msgid ""
 "The pay tags '%(invalid_tags)s' are not valid. valid tags are "
@@ -58,295 +66,318 @@ msgid ""
 msgstr ""
 "Die Tags '%(invalid_tags)s' sind ungültig. Gültige tags sind '%(valid_tags)s'"
 
-#: models/area.py:10
+#: django-kitamanager/kitamanager/models/area.py:10
 msgid "name of the area"
 msgstr "Name des Bereichs"
 
-#: models/area.py:11
+#: django-kitamanager/kitamanager/models/area.py:11
 msgid "is this area educational (so an educator, not eg. a cook) ?"
 msgstr "Ist dies ein Bildungsbereich?"
 
-#: models/bank.py:64 models/employee_payment.py:38
+#: django-kitamanager/kitamanager/models/bank.py:64
+#: django-kitamanager/kitamanager/models/employee_payment.py:38
 msgid "start date for entry"
 msgstr "Start Datum"
 
-#: models/bank.py:65 models/employee_payment.py:39
+#: django-kitamanager/kitamanager/models/bank.py:65
+#: django-kitamanager/kitamanager/models/employee_payment.py:39
 msgid "end date for entry"
 msgstr "Ende Datum"
 
-#: models/bank.py:66
+#: django-kitamanager/kitamanager/models/bank.py:66
 msgid "bank account balance"
 msgstr "Kontostand"
 
-#: models/bank.py:99 models/person.py:133
+#: django-kitamanager/kitamanager/models/bank.py:99
+#: django-kitamanager/kitamanager/models/person.py:133
 msgid "start date can not be greater or equal than end date"
 msgstr "Start Datum kann nicht größer oder gleich dem End Datum sein"
 
-#: models/child.py:22
+#: django-kitamanager/kitamanager/models/child.py:22
 msgid "the voucher identifier"
 msgstr "Guscheinnummer"
 
-#: models/child.py:70
+#: django-kitamanager/kitamanager/models/child.py:70
 msgid ""
 "list of comma separated payment properties. Those must match the payment plan"
 msgstr ""
 "Liste mit komma separierten Bezahltags. Dieses müssen mit dem Bezahlplan "
 "übereinstimmen"
 
-#: models/child_payment.py:38 models/revenue.py:47
+#: django-kitamanager/kitamanager/models/child_payment.py:38
+#: django-kitamanager/kitamanager/models/revenue.py:47
 msgid "start date"
 msgstr "Start Datum"
 
-#: models/child_payment.py:39 models/revenue.py:48
+#: django-kitamanager/kitamanager/models/child_payment.py:39
+#: django-kitamanager/kitamanager/models/revenue.py:48
 msgid "end date"
 msgstr "Ende Datum"
 
-#: models/child_payment.py:72
+#: django-kitamanager/kitamanager/models/child_payment.py:72
 msgid "age (in years) range for this property"
 msgstr "Alterszeitraum (in Jahren) für diese Eigenschaft"
 
-#: models/child_payment.py:74
+#: django-kitamanager/kitamanager/models/child_payment.py:74
 msgid "property name"
 msgstr "Eigenschaftsname"
 
-#: models/child_payment.py:76
+#: django-kitamanager/kitamanager/models/child_payment.py:76
 msgid "imcoming pay (in Euro) to get for this property"
 msgstr "Einnahmen (in Euro) für diese Eigenschaft"
 
-#: models/child_payment.py:79
+#: django-kitamanager/kitamanager/models/child_payment.py:79
 msgid "required employees in % (eg. 0.5 means half a person)"
 msgstr "Benötigtes Personal in Prozent (zB. 0.5 bedeutet eine halbe Stelle)"
 
-#: models/employee.py:133
+#: django-kitamanager/kitamanager/models/employee.py:133
 msgid "qualification the employee has"
 msgstr "Qualifikation des Mitarbeiters"
 
-#: models/employee.py:136 models/employee_payment.py:72
-#: templates/kitamanager/employee_detail.html:25
+#: django-kitamanager/kitamanager/models/employee.py:136
+#: django-kitamanager/kitamanager/models/employee_payment.py:72
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:25
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:13
 msgid "pay group"
 msgstr "Bazahlgruppe"
 
-#: models/employee.py:137 models/employee_payment.py:73
-#: templates/kitamanager/employee_detail.html:26
+#: django-kitamanager/kitamanager/models/employee.py:137
+#: django-kitamanager/kitamanager/models/employee_payment.py:73
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:26
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:14
 msgid "pay level"
 msgstr "Bezahllevel"
 
-#: models/employee.py:143
+#: django-kitamanager/kitamanager/models/employee.py:143
 msgid "working hours per week (children)"
 msgstr "Arbeitsstunden pro Woche (Kind)"
 
-#: models/employee.py:150
+#: django-kitamanager/kitamanager/models/employee.py:150
 msgid "working hours per week (management)"
 msgstr "Arbeitsstunden pro Woche (Leitung)"
 
-#: models/employee.py:157
+#: django-kitamanager/kitamanager/models/employee.py:157
 msgid "working hours per week (team)"
 msgstr "Arbeitsstunden pro Woche (Team)"
 
-#: models/employee.py:164
+#: django-kitamanager/kitamanager/models/employee.py:164
 msgid "working hours per week (miscellaneous)"
 msgstr "Arbeitsstunden pro Woche (Sonstiges)"
 
-#: models/employee_payment.py:40
+#: django-kitamanager/kitamanager/models/employee_payment.py:40
 msgid "weekly working hours"
 msgstr "Arbeitsstunden pro Woche"
 
-#: models/employee_payment.py:79
+#: django-kitamanager/kitamanager/models/employee_payment.py:79
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:23
 msgid "monthly salary"
 msgstr "Gehalt pro Monat"
 
-#: models/person.py:45
+#: django-kitamanager/kitamanager/models/person.py:45
 msgid "optional comment"
 msgstr "Optionaler Kommentar"
 
-#: models/person.py:103
+#: django-kitamanager/kitamanager/models/person.py:103
 msgid "start date for the contract"
 msgstr "Begin Datum für den Vertrag"
 
-#: models/person.py:104
+#: django-kitamanager/kitamanager/models/person.py:104
 msgid "end date for the contract"
 msgstr "Ende Datum für den Vertrag"
 
-#: models/person.py:105
+#: django-kitamanager/kitamanager/models/person.py:105
 msgid "area where the person is"
 msgstr "Bereich"
 
-#: models/revenue.py:49
+#: django-kitamanager/kitamanager/models/revenue.py:49
 msgid "pay (in Euro)"
 msgstr "Bezahlung (in Euro)"
 
-#: templates/kitamanager/admin/bankaccountentry_changelist.html:6
+#: django-kitamanager/kitamanager/templates/kitamanager/admin/bankaccountentry_changelist.html:6
 msgid "import bankaccount entries"
 msgstr "Importiere Konstände"
 
-#: templates/kitamanager/admin/bankaccountentry_import.html:5
+#: django-kitamanager/kitamanager/templates/kitamanager/admin/bankaccountentry_import.html:5
 msgid "The .xlsx files are provided by Nicole on a monthly base"
 msgstr "Die .xlsx Dateien werden von Nicole monatlich bereitgestellt"
 
-#: templates/kitamanager/admin/bankaccountentry_import.html:20
+#: django-kitamanager/kitamanager/templates/kitamanager/admin/bankaccountentry_import.html:20
 msgid "save"
 msgstr "Speichern"
 
-#: templates/kitamanager/bankaccount_list.html:9
+#: django-kitamanager/kitamanager/templates/kitamanager/bankaccount_list.html:9
 msgid "Bank account balance"
 msgstr "Kontostand"
 
-#: templates/kitamanager/bankaccount_list.html:12
+#: django-kitamanager/kitamanager/templates/kitamanager/bankaccount_list.html:12
 msgid "import"
 msgstr "Importieren"
 
-#: templates/kitamanager/bankaccount_list.html:15
+#: django-kitamanager/kitamanager/templates/kitamanager/bankaccount_list.html:15
 msgid "Sum of all bank account balances (in €) over the last months"
 msgstr "Summe aller Kontostände (in €) der letzten Monate"
 
-#: templates/kitamanager/base.html:7
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:7
 msgid "Kitamanager"
 msgstr "Kitaverwaltung"
 
-#: templates/kitamanager/base.html:26
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:26
 msgid "Employees"
 msgstr "Mitarbeiter"
 
-#: templates/kitamanager/base.html:30 templates/kitamanager/base.html:46
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:30
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:46
 msgid "List"
 msgstr "Liste"
 
-#: templates/kitamanager/base.html:33 templates/kitamanager/base.html:52
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:33
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:52
 msgid "Payment plans"
 msgstr "Bezahlplan"
 
-#: templates/kitamanager/base.html:36
-#: templates/kitamanager/employee_bonuspayment.html:7
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:36
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:7
 msgid "Bonus payment calculator"
 msgstr "Sonderzahlungsrechner"
 
-#: templates/kitamanager/base.html:42
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:42
 msgid "Children"
 msgstr "Kinder"
 
-#: templates/kitamanager/base.html:49
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:49
 msgid "Future"
 msgstr "Zukunft"
 
-#: templates/kitamanager/base.html:55
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:55
 msgid "Statistics"
 msgstr "Statistiken"
 
-#: templates/kitamanager/base.html:61
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:61
 msgid "Finance"
 msgstr "Finanzen"
 
-#: templates/kitamanager/base.html:65
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:65
 msgid "bank accounts"
 msgstr "Kontostände"
 
-#: templates/kitamanager/base.html:70
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:70
 msgid "Admin"
 msgstr "Admin"
 
-#: templates/kitamanager/child_detail.html:10
-#: templates/kitamanager/child_list_future.html:35
-#: templates/kitamanager/employee_detail.html:9
+#: django-kitamanager/kitamanager/templates/kitamanager/child_detail.html:10
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:35
+#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:23
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:9
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:30
 msgid "edit"
 msgstr "Bearbeiten"
 
-#: templates/kitamanager/child_detail.html:13
-#: templates/kitamanager/child_list_future.html:14
-#: templates/kitamanager/employee_detail.html:15
+#: django-kitamanager/kitamanager/templates/kitamanager/child_detail.html:13
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:14
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:15
 msgid "contracts"
 msgstr "Verträge"
 
-#: templates/kitamanager/child_detail.html:20
-#: templates/kitamanager/employee_detail.html:22
+#: django-kitamanager/kitamanager/templates/kitamanager/child_detail.html:20
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:22
 msgid "from"
 msgstr "Von"
 
-#: templates/kitamanager/child_detail.html:21
-#: templates/kitamanager/employee_detail.html:23
+#: django-kitamanager/kitamanager/templates/kitamanager/child_detail.html:21
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:23
 msgid "to"
 msgstr "Bis"
 
-#: templates/kitamanager/child_detail.html:22
-#: templates/kitamanager/child_list_future.html:24
-#: templates/kitamanager/employee_detail.html:27
+#: django-kitamanager/kitamanager/templates/kitamanager/child_detail.html:22
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:24
+#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:12
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:27
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:16
 msgid "area"
 msgstr "Bereich"
 
-#: templates/kitamanager/child_detail.html:23
-#: templates/kitamanager/child_list_future.html:27
-#: templates/kitamanager/employee_detail.html:24
+#: django-kitamanager/kitamanager/templates/kitamanager/child_detail.html:23
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:27
+#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:13
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:24
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:12
 msgid "pay plan"
 msgstr "Bezahlplan"
 
-#: templates/kitamanager/child_detail.html:24
-#: templates/kitamanager/child_list_future.html:28
+#: django-kitamanager/kitamanager/templates/kitamanager/child_detail.html:24
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:28
+#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:14
 msgid "pay tags"
 msgstr "Bezahltags"
 
-#: templates/kitamanager/child_list.html:11
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list.html:11
 msgid "children summary"
 msgstr "Kinder Zusammenfassung"
 
-#: templates/kitamanager/child_list.html:14
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list.html:14
 msgid "FIXME"
 msgstr ""
 
-#: templates/kitamanager/child_list.html:20
-#: templates/kitamanager/employee_list.html:21
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list.html:20
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:21
 msgid "count"
 msgstr "Summe"
 
-#: templates/kitamanager/child_list.html:24
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list.html:24
 msgid "∑ payments"
 msgstr "∑ Bezahlung"
 
-#: templates/kitamanager/child_list.html:33
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list.html:33
 msgid "children count grouped by area"
 msgstr "Anzahl Kinder per Bereich"
 
-#: templates/kitamanager/child_list.html:38
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list.html:38
 msgid "The number of children grouped by area"
 msgstr "Die Anzahl der Kinder per Bereich"
 
-#: templates/kitamanager/child_list.html:51
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list.html:51
 msgid "children"
 msgstr "Kinder"
 
-#: templates/kitamanager/child_list_future.html:11
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:11
 msgid "children starting after"
 msgstr "Kinder starten nach dem"
 
-#: templates/kitamanager/child_list_future.html:23
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:23
+#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:11
 msgid "age"
 msgstr "Alter"
 
-#: templates/kitamanager/child_list_future.html:25
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:25
 msgid "start"
 msgstr "Start"
 
-#: templates/kitamanager/child_list_future.html:26
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:26
 msgid "end"
 msgstr "End"
 
-#: templates/kitamanager/child_list_future.html:36
-#: templates/kitamanager/childpayment_list.html:30
-#: templates/kitamanager/employeepayment_list.html:22
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:36
+#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:24
+#: django-kitamanager/kitamanager/templates/kitamanager/childpayment_list.html:30
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:31
+#: django-kitamanager/kitamanager/templates/kitamanager/employeepayment_list.html:22
 msgid "details"
 msgstr "Details"
 
-#: templates/kitamanager/child_statistics.html:10
+#: django-kitamanager/kitamanager/templates/kitamanager/child_statistics.html:10
 msgid "children count by month"
 msgstr "Kinder per Monat"
 
-#: templates/kitamanager/child_statistics.html:15
+#: django-kitamanager/kitamanager/templates/kitamanager/child_statistics.html:15
 msgid "The number of children over the years"
 msgstr "Die Anzahl der Kinder über die Jahre"
 
-#: templates/kitamanager/child_statistics.html:24 views_child.py:242
+#: django-kitamanager/kitamanager/templates/kitamanager/child_statistics.html:24
+#: django-kitamanager/kitamanager/views_child.py:242
 msgid "Calculated children payment vs. invoice"
 msgstr "Berechnete Kinderbezahlung gegenüber Rechnungen"
 
-#: templates/kitamanager/child_statistics.html:29
+#: django-kitamanager/kitamanager/templates/kitamanager/child_statistics.html:29
 msgid ""
 "The calculated child payment is based on the payment plan used for each "
 "child. The invoice is the money usually received from the government "
@@ -355,36 +386,45 @@ msgstr ""
 " Die kalkulierten Kinderzahlungen basieren auf den benutztem Bezahlplan für "
 "jedes Kind Die Rechnung kommt vom Senat"
 
-#: templates/kitamanager/childpayment_detail.html:7
+#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:15
+msgid "payment (€/month)"
+msgstr "Bezahlung (€/Monat)"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:16
+#, python-format
+msgid "required employee in %%"
+msgstr "Benötigte Mitarbeiter in %%"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/childpayment_detail.html:7
 msgid "children payments for plan "
 msgstr "Kinder Bezahlungen per Bezahlpläne"
 
-#: templates/kitamanager/childpayment_detail.html:22
+#: django-kitamanager/kitamanager/templates/kitamanager/childpayment_detail.html:22
 msgid "child age"
 msgstr "Alter Kind"
 
-#: templates/kitamanager/childpayment_detail.html:23
+#: django-kitamanager/kitamanager/templates/kitamanager/childpayment_detail.html:23
 msgid "propery name"
 msgstr "Eigenschaftsname"
 
-#: templates/kitamanager/childpayment_detail.html:24
+#: django-kitamanager/kitamanager/templates/kitamanager/childpayment_detail.html:24
 msgid "pay income (in €)"
 msgstr "Einnahmen (in €)"
 
-#: templates/kitamanager/childpayment_detail.html:25
+#: django-kitamanager/kitamanager/templates/kitamanager/childpayment_detail.html:25
 #, python-format
 msgid "requirement (employee in %%)"
 msgstr "Erfordernis (employee in %%)"
 
-#: templates/kitamanager/childpayment_detail.html:26
+#: django-kitamanager/kitamanager/templates/kitamanager/childpayment_detail.html:26
 msgid "comment"
 msgstr "Kommentar"
 
-#: templates/kitamanager/childpayment_list.html:7
+#: django-kitamanager/kitamanager/templates/kitamanager/childpayment_list.html:7
 msgid "child payment plans"
 msgstr "Kind Bezahlpläne"
 
-#: templates/kitamanager/childpayment_list.html:10
+#: django-kitamanager/kitamanager/templates/kitamanager/childpayment_list.html:10
 msgid ""
 "child payment plans match properties stored for each child against a "
 "selected payment plan for each child. Eg. for Berlin, a payment plan follows "
@@ -393,13 +433,13 @@ msgid ""
 msgstr ""
 " Kind Bezahlpläne basieren auf dem ausgewählten Bezahlplan für jedes Kind."
 
-#: templates/kitamanager/childpayment_list.html:22
-#: templates/kitamanager/employee_bonuspayment.html:28
-#: templates/kitamanager/employeepayment_list.html:14
+#: django-kitamanager/kitamanager/templates/kitamanager/childpayment_list.html:22
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:28
+#: django-kitamanager/kitamanager/templates/kitamanager/employeepayment_list.html:14
 msgid "name"
 msgstr "Name"
 
-#: templates/kitamanager/employee_bonuspayment.html:10
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:10
 msgid ""
 "The bonus payment calculator can be used, to calculate a yearly bonus "
 "payment at the end of the year. Only employees with a valid contact at the "
@@ -409,99 +449,112 @@ msgstr ""
 "genutzt werden. Nur MitarbeiterInnen mit einem Vertrag am Ende des Jahres "
 "(31. Dezember) sind hier gelistet."
 
-#: templates/kitamanager/employee_bonuspayment.html:18
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:18
 msgid "apply"
 msgstr "Anwenden"
 
-#: templates/kitamanager/employee_bonuspayment.html:22
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:22
 msgid "Total pay for all employees would be"
 msgstr "Gesamtbetrag für alle MitarbeiterInnen wäre"
 
-#: templates/kitamanager/employee_bonuspayment.html:29 views_child.py:172
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:29
+#: django-kitamanager/kitamanager/views_child.py:172
 msgid "January"
 msgstr "Januar"
 
-#: templates/kitamanager/employee_bonuspayment.html:30 views_child.py:173
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:30
+#: django-kitamanager/kitamanager/views_child.py:173
 msgid "February"
 msgstr "Februar"
 
-#: templates/kitamanager/employee_bonuspayment.html:31 views_child.py:174
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:31
+#: django-kitamanager/kitamanager/views_child.py:174
 msgid "March"
 msgstr "März"
 
-#: templates/kitamanager/employee_bonuspayment.html:32 views_child.py:175
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:32
+#: django-kitamanager/kitamanager/views_child.py:175
 msgid "April"
 msgstr "April"
 
-#: templates/kitamanager/employee_bonuspayment.html:33 views_child.py:176
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:33
+#: django-kitamanager/kitamanager/views_child.py:176
 msgid "May"
 msgstr "Mai"
 
-#: templates/kitamanager/employee_bonuspayment.html:34 views_child.py:177
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:34
+#: django-kitamanager/kitamanager/views_child.py:177
 msgid "June"
 msgstr "Juni"
 
-#: templates/kitamanager/employee_bonuspayment.html:35 views_child.py:178
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:35
+#: django-kitamanager/kitamanager/views_child.py:178
 msgid "July"
 msgstr "Juli"
 
-#: templates/kitamanager/employee_bonuspayment.html:36 views_child.py:179
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:36
+#: django-kitamanager/kitamanager/views_child.py:179
 msgid "August"
 msgstr "August"
 
-#: templates/kitamanager/employee_bonuspayment.html:37 views_child.py:180
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:37
+#: django-kitamanager/kitamanager/views_child.py:180
 msgid "September"
 msgstr "September"
 
-#: templates/kitamanager/employee_bonuspayment.html:38 views_child.py:181
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:38
+#: django-kitamanager/kitamanager/views_child.py:181
 msgid "October"
 msgstr "October"
 
-#: templates/kitamanager/employee_bonuspayment.html:39 views_child.py:182
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:39
+#: django-kitamanager/kitamanager/views_child.py:182
 msgid "November"
 msgstr "November"
 
-#: templates/kitamanager/employee_bonuspayment.html:40 views_child.py:183
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:40
+#: django-kitamanager/kitamanager/views_child.py:183
 msgid "December"
 msgstr "December"
 
-#: templates/kitamanager/employee_bonuspayment.html:41
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:41
 msgid "total"
 msgstr "Gesamt"
 
-#: templates/kitamanager/employee_detail.html:12
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:12
 msgid "hiring date"
 msgstr "Einstellungsdatum"
 
-#: templates/kitamanager/employee_detail.html:28
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:28
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:17
 msgid "qualification"
 msgstr "Qualifikation"
 
-#: templates/kitamanager/employee_detail.html:29
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:29
 msgid "children (hours/week)"
 msgstr "Kinder (Stunden/Woche)"
 
-#: templates/kitamanager/employee_detail.html:30
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:30
 msgid "management (hours/week)"
 msgstr "Leitung (Stunden/Woche)"
 
-#: templates/kitamanager/employee_detail.html:31
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:31
 msgid "team (hours/week)"
 msgstr "Team (Stunden/Woche)"
 
-#: templates/kitamanager/employee_detail.html:32
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:32
 msgid "misc (hours/week)"
 msgstr "Sonstiges (Stunden/Woche)"
 
-#: templates/kitamanager/employee_detail.html:33
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_detail.html:33
 msgid "total (hours/week)"
 msgstr "Gesamt (Stunden/Woche)"
 
-#: templates/kitamanager/employee_list.html:11
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:11
 msgid "employee summary"
 msgstr "Mitarbeiter Zusammenfassung"
 
-#: templates/kitamanager/employee_list.html:14
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:14
 msgid ""
 "child and team hours count on the personnel key required by the Berliner "
 "Senat.</br> management and misc hours do not count on the personnel key.</br>"
@@ -509,56 +562,56 @@ msgstr ""
 " Kinder und Team Stunden zählen zum Personalschlüssel. Leitungsstunden und "
 "sonstige Stunden nicht."
 
-#: templates/kitamanager/employee_list.html:25
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:25
 msgid "∑ child"
 msgstr "∑ Kind"
 
-#: templates/kitamanager/employee_list.html:26
-#: templates/kitamanager/employee_list.html:30
-#: templates/kitamanager/employee_list.html:34
-#: templates/kitamanager/employee_list.html:38
-#: templates/kitamanager/employee_list.html:42
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:26
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:30
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:34
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:38
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:42
 msgid "h/week"
 msgstr "h/Woche"
 
-#: templates/kitamanager/employee_list.html:29
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:29
 msgid "∑ management"
 msgstr "∑ Leitung"
 
-#: templates/kitamanager/employee_list.html:33
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:33
 msgid "∑ team"
 msgstr "∑ Team"
 
-#: templates/kitamanager/employee_list.html:37
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:37
 msgid "∑ misc"
 msgstr "∑ Sonstiges"
 
-#: templates/kitamanager/employee_list.html:41
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:41
 msgid "∑ total"
 msgstr "∑ Gesamt"
 
-#: templates/kitamanager/employee_list.html:45
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:45
 msgid "∑ salary"
 msgstr "∑ Gehalt"
 
-#: templates/kitamanager/employee_list.html:49
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:49
 msgid "∑ salary plus additional employer costs"
 msgstr "∑ Gehalt plus Arbeitgeberkosten"
 
-#: templates/kitamanager/employee_list.html:58
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:58
 msgid "employee count grouped by area"
 msgstr "Anzahl MitarbeiterInnen per Bereich"
 
-#: templates/kitamanager/employee_list.html:63
-#: templates/kitamanager/employeecontract_list.html:14
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:63
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_list.html:14
 msgid "The number of employees grouped by area"
 msgstr "Anzahl MitarbeiterInnen per Bereich"
 
-#: templates/kitamanager/employee_list.html:73
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:73
 msgid "hours/week grouped by area"
-msgstr "Stunden/Woche per Bereic"
+msgstr "Stunden/Woche per Bereich"
 
-#: templates/kitamanager/employee_list.html:78
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:78
 msgid ""
 "The number of weekly hours (included all type of hours)</br> of all "
 "employees grouped by area"
@@ -566,68 +619,106 @@ msgstr ""
 "Die Anzahl der Wochenstunden (alle Typen) von allen MitarbeiterInnen per "
 "Bereich"
 
-#: templates/kitamanager/employee_list.html:92
-#: templates/kitamanager/employeecontract_list.html:37
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_list.html:92
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_list.html:37
 msgid "employees"
 msgstr "MitarbeiterInnen"
 
-#: templates/kitamanager/employeecontract_list.html:9
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_list.html:9
 msgid "Employee count grouped by area"
 msgstr "Anzahl MitarbeiterInnen per Bereich"
 
-#: templates/kitamanager/employeepayment_detail.html:7
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:11
+msgid "begin date"
+msgstr ""
+"Start Datum\n"
+"\t"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:15
+msgid "pay level next"
+msgstr "Nächstes Bezahllevel"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:18
+msgid "hours child per week"
+msgstr "Kind (Stunden/Woche)"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:19
+msgid "hours management per week"
+msgstr "Leitung (Stunden/Woche)"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:20
+msgid "hours team per week"
+msgstr "Team (Stunden/Woche)"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:21
+msgid "hours misc per week"
+msgstr "Sonstiges (Stunden/Woche)"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:22
+msgid "hours total per week"
+msgstr "Gesamt (Stunden/Woche)"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/employeepayment_detail.html:7
 msgid "employee payments for plan "
 msgstr "Mitarbeiter Bezahlplan"
 
-#: templates/kitamanager/employeepayment_detail.html:13
+#: django-kitamanager/kitamanager/templates/kitamanager/employeepayment_detail.html:13
 msgid "hours/week"
 msgstr "Stunden/Woche"
 
-#: templates/kitamanager/employeepayment_detail.html:23
+#: django-kitamanager/kitamanager/templates/kitamanager/employeepayment_detail.html:23
 msgid "group/level"
 msgstr "Gruppe/Level"
 
-#: templates/kitamanager/employeepayment_list.html:7
+#: django-kitamanager/kitamanager/templates/kitamanager/employeepayment_list.html:7
 msgid "employee payment plans"
 msgstr "Mitarbeiter Bezahlpläne"
 
-#: views_bank.py:60
+#: django-kitamanager/kitamanager/templates/kitamanager/historydate_form.inc.html:5
+#, fuzzy
+#| msgid "hiring date"
+msgid "change date"
+msgstr "Einstellungsdatum"
+
+#: django-kitamanager/kitamanager/views_bank.py:60
 #, python-brace-format
 msgid "monthly bank account balance sum in € (on {historydate})"
 msgstr "Summe monatliche Kontostände in € (am {historydate})"
 
-#: views_bank.py:65
+#: django-kitamanager/kitamanager/views_bank.py:65
 msgid "Balance (in €) over time"
 msgstr "Kontostand (in €) über die Zeit"
 
-#: views_child.py:142
+#: django-kitamanager/kitamanager/views_child.py:142
 #, python-brace-format
 msgid "Children grouped by area (on {historydate}"
 msgstr "Kinder per Bereich (am {historydate}"
 
-#: views_child.py:147 views_employee.py:157 views_employee.py:189
+#: django-kitamanager/kitamanager/views_child.py:147
+#: django-kitamanager/kitamanager/views_employee.py:157
+#: django-kitamanager/kitamanager/views_employee.py:189
 msgid "Count"
 msgstr "Anzahl"
 
-#: views_child.py:196
+#: django-kitamanager/kitamanager/views_child.py:196
 msgid "Children count by month"
 msgstr "Kinder per Monat"
 
-#: views_child.py:218
+#: django-kitamanager/kitamanager/views_child.py:218
 msgid "calculated child payment (in €)"
 msgstr "Berechnete Kindbezahlung (in €)"
 
-#: views_child.py:223
+#: django-kitamanager/kitamanager/views_child.py:223
 #, python-format
 msgid "invoice %(invoice_name)s (in €)"
 msgstr "Rechnung %(invoice_name)s (in €)"
 
-#: views_employee.py:152
+#: django-kitamanager/kitamanager/views_employee.py:152
 #, python-brace-format
 msgid "Employees grouped by area (on {historydate}"
 msgstr "MitarbeiterInnen per Bereich (am {historydate})"
 
-#: views_employee.py:184
+#: django-kitamanager/kitamanager/views_employee.py:184
 #, python-brace-format
 msgid "Employee working hours grouped by area (on {historydate}"
 msgstr "Arbeitsstunden per Bereich (an {historydate})"
