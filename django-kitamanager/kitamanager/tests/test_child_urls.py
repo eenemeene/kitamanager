@@ -88,18 +88,18 @@ def test_child_charts_count_by_month(admin_client):
     assert response.status_code == 200
     assert response.json()["title"] == "Children count by month"
     assert response.json()["data"]["labels"] == [
-        "Januar",
-        "Februar",
-        "März",
+        "January",
+        "February",
+        "March",
         "April",
-        "Mai",
-        "Juni",
-        "Juli",
+        "May",
+        "June",
+        "July",
         "August",
         "September",
-        "Oktober",
+        "October",
         "November",
-        "Dezember",
+        "December",
     ]
     assert response.json()["data"]["datasets"] == [
         {"label": 2017, "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "backgroundColor": "#ffa600"},
