@@ -43,7 +43,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          # both required for setuptools_scm to produce a correct version
+          fetch-depth: 0
+          fetch-tags: true
+          # https://github.com/actions/checkout#checkout-pull-request-head-commit-instead-of-merge-commit
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Set django-kitamanager version env
+        run: |
+          pip install --upgrade pip setuptools setuptools_scm
+          echo "DJANGO_KITAMANAGER_VERSION=$(cd django-kitamanager && python -m setuptools_scm)" >> $GITHUB_ENV
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v4
@@ -64,6 +74,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
+          build-args: |
+            "VERSION=${{ env.DJANGO_KITAMANAGER_VERSION }}"
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

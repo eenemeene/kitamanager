@@ -1,6 +1,7 @@
 FROM ubuntu:jammy
 
 MAINTAINER thomasbechtold@jpberlin.de
+ARG VERSION=unknown
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -15,7 +16,7 @@ WORKDIR $APPDIR
 COPY . .
 RUN cd django-kitamanager && \
     pip install --upgrade pip setuptools \
-    && pip install --no-cache-dir "." gunicorn tzdata
+    && SETUPTOOLS_SCM_PRETEND_VERSION=${VERSION} pip install --no-cache-dir "." gunicorn tzdata
 
 COPY ./docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]

@@ -1,7 +1,14 @@
+from importlib.metadata import version, PackageNotFoundError
 from django import template
 from kitamanager.models import Employee, ChildContract, Person
 
 register = template.Library()
+
+
+try:
+    _django_kitamanager_version = version("django-kitamanager")
+except PackageNotFoundError:
+    _django_kitamanager_version = "unknown"
 
 
 @register.filter("pay_level_next")
@@ -37,3 +44,8 @@ def age(obj, date):
     if not isinstance(obj, Person):
         raise Exception(f'"age" template filter expects a "Person" object but got {obj.__class__}')
     return obj.age(date)
+
+
+@register.simple_tag
+def django_kitamanager_version():
+    return _django_kitamanager_version

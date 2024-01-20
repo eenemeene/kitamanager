@@ -1,4 +1,5 @@
 {% load static %}
+{% load kitamanagertags %}
 {% load i18n %}
 
 <!doctype html>
@@ -94,5 +95,11 @@
           {% block content %}{% endblock content %}
         </section>
       </div>
+      <footer class="footer">
+        <div class="content has-text-centered">
+          {% django_kitamanager_version as version %}
+          version: {{ version }}
+        </div>
+      </footer>
     </body>
 </html>

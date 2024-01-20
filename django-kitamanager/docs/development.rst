@@ -43,3 +43,13 @@ die entsprechenden Befehle zur Datenbankmigration usw:
 
 Jetzt sollte unter http://127.0.0.1:8000/ die Applikation laufen und ein login
 mit Benutzername `admin` und Passwort `admin` funktionieren.
+
+
+OCI Container bauen
+~~~~~~~~~~~~~~~~~~~
+
+Damit die Version korrekt gesetzt wird, muss der container mit folgendem Kommando gebaut werden:
+
+.. code-block:: shell
+
+   docker build --build-arg VERSION=$(cd django-kitamanager && python3 -m setuptools_scm) .
