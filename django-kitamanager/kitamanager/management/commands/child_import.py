@@ -6,7 +6,7 @@ import yaml
 
 
 class Command(BaseCommand):
-    help = "Import children and contracts from a json file which was exported from an older kitamanager version"
+    help = "Import children and contracts from a yaml file which was exported from an older kitamanager version"
 
     def add_arguments(self, parser):
         parser.add_argument("paymentplan-name", type=str)
@@ -21,9 +21,9 @@ class Command(BaseCommand):
 
         for child in data["kinder"]:
             p, created = Child.objects.get_or_create(
-                first_name=child["firstName"],
-                last_name=child["lastName"],
-                birth_date=child["birthDate"],
+                first_name=child["first_name"],
+                last_name=child["last_name"],
+                birth_date=child["birth_date"],
                 voucher=child["voucher"],
             )
             print(p, created)
@@ -34,21 +34,21 @@ class Command(BaseCommand):
                     area, created = Area.objects.get_or_create(name=c["area"], defaults=dict(educational=True))
 
                 pay_tag_list = []
-                if c["integrationA"]:
+                if c["integration_a"]:
                     pay_tag_list.append("integration a")
-                if c["integrationB"]:
+                if c["integration_b"]:
                     pay_tag_list.append("integration b")
                 if c["qm"]:
                     pay_tag_list.append("qm/mss")
                 if c["ndh"]:
                     pay_tag_list.append("ndh")
-                if c["carePeriod"] == "Gte":
+                if c["care_period"] == "gte":
                     pay_tag_list.append("ganztag erweitert")
-                if c["carePeriod"] == "Gt":
+                if c["care_period"] == "gt":
                     pay_tag_list.append("ganztag")
-                if c["carePeriod"] == "Tz":
+                if c["care_period"] == "tz":
                     pay_tag_list.append("teilzeit")
-                if c["carePeriod"] == "Ht":
+                if c["care_period"] == "ht":
                     pay_tag_list.append("halbtag")
 
                 ec, created = ChildContract.objects.get_or_create(
