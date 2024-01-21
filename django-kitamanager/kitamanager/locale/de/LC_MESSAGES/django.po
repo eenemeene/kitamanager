@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kitamanager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-17 20:15+0000\n"
-"PO-Revision-Date: 2024-01-17 21:22+0100\n"
+"POT-Creation-Date: 2024-01-21 12:17+0000\n"
+"PO-Revision-Date: 2024-01-21 14:02+0100\n"
 "Last-Translator: Thomas Bechtold <thomasbechtold@jpberlin.de>\n"
 "Language-Team: German <>\n"
 "Language: de\n"
@@ -18,53 +18,90 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Gtranslator 45.3\n"
 
-#: django-kitamanager/kitamanager/admin.py:62
-#: django-kitamanager/kitamanager/admin.py:191
-#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:22
-#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:10
-#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:10
-msgid "first name"
-msgstr "Vorname"
-
-#: django-kitamanager/kitamanager/admin.py:66
-#: django-kitamanager/kitamanager/admin.py:195
-#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:21
-#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:9
-#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:9
-msgid "last name"
-msgstr "Nachname"
-
-#: django-kitamanager/kitamanager/admin.py:105
+#: django-kitamanager/kitamanager/admin/bank.py:25
 #, python-brace-format
 msgid "Can not import file {value}. Wrong format?"
 msgstr "Datei {value} kann nicht importiert werden. Falsches Format?"
 
-#: django-kitamanager/kitamanager/admin.py:128
+#: django-kitamanager/kitamanager/admin/bank.py:48
 msgid "Import bank account entries from .xls file"
 msgstr "Importiere Kontostand Einträge aus .xls Dateien"
 
-#: django-kitamanager/kitamanager/admin.py:144
+#: django-kitamanager/kitamanager/admin/bank.py:64
 #, python-brace-format
 msgid "bank account entry {baentry} imported successful"
 msgstr "Kontostand Eintrag {baentry} erfolgreich erstellt"
 
-#: django-kitamanager/kitamanager/admin.py:146
+#: django-kitamanager/kitamanager/admin/bank.py:66
 #, python-brace-format
 msgid "bank account entry {baentry} updated successful"
 msgstr "Konstand Eintrag {baentry} erfolgreich aktualisiert"
 
-#: django-kitamanager/kitamanager/admin.py:160
+#: django-kitamanager/kitamanager/admin/child.py:16
 #, python-format
 msgid "area %(area)s can not be selected for a child"
 msgstr "Bereich %(area)s kann nicht für ein Kind ausgewählt werden"
 
-#: django-kitamanager/kitamanager/admin.py:178
+#: django-kitamanager/kitamanager/admin/child.py:34
 #, python-format
 msgid ""
 "The pay tags '%(invalid_tags)s' are not valid. valid tags are "
 "'%(valid_tags)s'"
 msgstr ""
 "Die Tags '%(invalid_tags)s' sind ungültig. Gültige tags sind '%(valid_tags)s'"
+
+#: django-kitamanager/kitamanager/admin/child.py:47
+#: django-kitamanager/kitamanager/admin/employee.py:33
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:22
+#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:10
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:10
+msgid "first name"
+msgstr "Vorname"
+
+#: django-kitamanager/kitamanager/admin/child.py:51
+#: django-kitamanager/kitamanager/admin/employee.py:37
+#: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:21
+#: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:9
+#: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_table.inc.html:9
+msgid "last name"
+msgstr "Nachname"
+
+#: django-kitamanager/kitamanager/admin/revenue.py:21
+#, python-brace-format
+msgid ""
+"Can not import file {value}. Is this a valid decrypted .xslx file from the "
+"Berliner Senat?"
+msgstr ""
+"Kann Datei {value} nicht importieren. Ist die Datei eine valide "
+"entschluesselte .xlsx Datei vom Berliner Senat?"
+
+#: django-kitamanager/kitamanager/admin/revenue.py:51
+msgid "Berlin invoice (Senatabrechnung) import from  .xlsx file"
+msgstr "Senatabrechnung von .xlsx Datei importieren"
+
+#: django-kitamanager/kitamanager/admin/revenue.py:69
+#, python-brace-format
+msgid "Revenue invoice Berlin {f} imported ({invoice})"
+msgstr "Senatabrechnung Berlin {f} importiert ({invoice})"
+
+#: django-kitamanager/kitamanager/admin/revenue.py:71
+#, python-brace-format
+msgid "Revenue invoice Berlin {f} updated ({invoice})"
+msgstr "Senatabrechnung Berlin {f} aktualisiert ({invoice})"
+
+#: django-kitamanager/kitamanager/admin/revenue.py:89
+msgid "Children in Kitamanager but not in invoice:"
+msgstr "Kinder in Kitamanager aber nicht in Abrechnung:"
+
+#: django-kitamanager/kitamanager/admin/revenue.py:101
+msgid "Children in invoice but not in Kitamanager:"
+msgstr "Kinder in Abrechnung aber nicht in Kitamanager:"
+
+#: django-kitamanager/kitamanager/admin/revenue.py:118
+#, python-brace-format
+msgid "Voucher in invoice for {child_db.last_name}, {child_db.first_name}"
+msgstr ""
+"Gutschein in Abrechung fuer {child_db.last_name}, {child_db.first_name}"
 
 #: django-kitamanager/kitamanager/models/area.py:10
 msgid "name of the area"
@@ -202,8 +239,22 @@ msgid "The .xlsx files are provided by Nicole on a monthly base"
 msgstr "Die .xlsx Dateien werden von Nicole monatlich bereitgestellt"
 
 #: django-kitamanager/kitamanager/templates/kitamanager/admin/bankaccountentry_import.html:20
+#: django-kitamanager/kitamanager/templates/kitamanager/admin/revenueentry_berlin_import.html:22
 msgid "save"
 msgstr "Speichern"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/admin/revenueentry_berlin_import.html:6
+msgid ""
+"Invoices for Berlin are provided by the Berliner Senat. Documentation can be "
+"found at https://www.berlin.de/sen/jugend/traegerservice/isbj/ ."
+msgstr ""
+"Abrechnung für Berlin werden vom Berliner Senat bereitgestellt. "
+"Dokumentation dazu findet sich unter https://www.berlin.de/sen/jugend/"
+"traegerservice/isbj/ ."
+
+#: django-kitamanager/kitamanager/templates/kitamanager/admin/revenueentry_changelist.html:6
+msgid "import berlin invoices (Senatabrechnung)"
+msgstr "Importiere Berlin Abrechnungen (Senatabrechnung)"
 
 #: django-kitamanager/kitamanager/templates/kitamanager/bankaccount_list.html:9
 msgid "Bank account balance"
@@ -217,50 +268,50 @@ msgstr "Importieren"
 msgid "Sum of all bank account balances (in €) over the last months"
 msgstr "Summe aller Kontostände (in €) der letzten Monate"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:7
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:8
 msgid "Kitamanager"
 msgstr "Kitaverwaltung"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:26
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:27
 msgid "Employees"
 msgstr "Mitarbeiter"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:30
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:46
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:31
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:47
 msgid "List"
 msgstr "Liste"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:33
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:52
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:34
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:53
 msgid "Payment plans"
 msgstr "Bezahlplan"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:36
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:37
 #: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:7
 msgid "Bonus payment calculator"
 msgstr "Sonderzahlungsrechner"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:42
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:43
 msgid "Children"
 msgstr "Kinder"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:49
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:50
 msgid "Future"
 msgstr "Zukunft"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:55
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:56
 msgid "Statistics"
 msgstr "Statistiken"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:61
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:62
 msgid "Finance"
 msgstr "Finanzen"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:65
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:66
 msgid "bank accounts"
 msgstr "Kontostände"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:70
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:71
 msgid "Admin"
 msgstr "Admin"
 
@@ -373,7 +424,7 @@ msgid "The number of children over the years"
 msgstr "Die Anzahl der Kinder über die Jahre"
 
 #: django-kitamanager/kitamanager/templates/kitamanager/child_statistics.html:24
-#: django-kitamanager/kitamanager/views_child.py:242
+#: django-kitamanager/kitamanager/views_child.py:241
 msgid "Calculated children payment vs. invoice"
 msgstr "Berechnete Kinderbezahlung gegenüber Rechnungen"
 
@@ -675,10 +726,8 @@ msgid "employee payment plans"
 msgstr "Mitarbeiter Bezahlpläne"
 
 #: django-kitamanager/kitamanager/templates/kitamanager/historydate_form.inc.html:5
-#, fuzzy
-#| msgid "hiring date"
 msgid "change date"
-msgstr "Einstellungsdatum"
+msgstr "Änderungsdatum"
 
 #: django-kitamanager/kitamanager/views_bank.py:60
 #, python-brace-format
@@ -704,11 +753,11 @@ msgstr "Anzahl"
 msgid "Children count by month"
 msgstr "Kinder per Monat"
 
-#: django-kitamanager/kitamanager/views_child.py:218
+#: django-kitamanager/kitamanager/views_child.py:217
 msgid "calculated child payment (in €)"
 msgstr "Berechnete Kindbezahlung (in €)"
 
-#: django-kitamanager/kitamanager/views_child.py:223
+#: django-kitamanager/kitamanager/views_child.py:222
 #, python-format
 msgid "invoice %(invoice_name)s (in €)"
 msgstr "Rechnung %(invoice_name)s (in €)"
