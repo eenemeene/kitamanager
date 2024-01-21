@@ -21,9 +21,9 @@ class Command(BaseCommand):
 
         for employee in data["mitarbeiter"]:
             e, created = Employee.objects.get_or_create(
-                first_name=employee["firstName"],
-                last_name=employee["lastName"],
-                birth_date=employee["birthDate"],
+                first_name=employee["first_name"],
+                last_name=employee["last_name"],
+                birth_date=employee["birth_date"],
             )
             print(e, created)
             for c in employee["contracts"]:
@@ -38,13 +38,13 @@ class Command(BaseCommand):
                     end=c["end"],
                     area=area,
                     qualification=qualification,
-                    hours_child=c["hoursChild"],
-                    hours_management=c["hoursManagement"],
-                    hours_team=c["hoursTeam"],
-                    hours_misc=c["hoursMisc"],
+                    hours_child=c["hours_child"],
+                    hours_management=c["hours_management"],
+                    hours_team=c["hours_team"],
+                    hours_misc=c["hours_misc"],
                     pay_plan=plan,
-                    pay_group=c["payGroup"],
-                    pay_level=c["payLevel"],
+                    pay_group=c["pay_group"],
+                    pay_level=c["pay_level"],
                 )
                 print(ec, created)
 
