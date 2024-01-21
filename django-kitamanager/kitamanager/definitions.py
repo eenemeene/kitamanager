@@ -13,7 +13,7 @@ PAY_LEVEL_BY_YEARS = {
 SALARY_EMPLOYER_ADDITION = 0.23
 
 # The name to use for RevenueEntries for the Berliner Senatsabrechnungen
-REVENUE_NAME_BERLIN="Berlin Senatabrechnung"
+REVENUE_NAME_BERLIN = "Berlin Senatabrechnung"
 
 CHART_COLORS = [
     "#ffa600",
