@@ -12,6 +12,8 @@ PAY_LEVEL_BY_YEARS = {
 # the additional amount of money the employer needs to pay for a employee salary
 SALARY_EMPLOYER_ADDITION = 0.23
 
+# The name to use for RevenueEntries for the Berliner Senatsabrechnungen
+REVENUE_NAME_BERLIN="Berlin Senatabrechnung"
 
 CHART_COLORS = [
     "#ffa600",

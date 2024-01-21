@@ -2,6 +2,7 @@ import os
 from django.core.management.base import BaseCommand
 from kitamanager.models import RevenueName, RevenueEntry
 from kitamanager.berlin import BerlinInvoice
+from kitamanager.definitions import REVENUE_NAME_BERLIN
 from dateutil.relativedelta import relativedelta
 
 
@@ -9,7 +10,6 @@ class Command(BaseCommand):
     help = "Import 'Senatsabrechnung' (invoice) from Berlin/Germany"
 
     def add_arguments(self, parser):
-        parser.add_argument("revenue-name")
         parser.add_argument("file-path")
 
     def handle(self, *args, **options):
@@ -24,7 +24,7 @@ class Command(BaseCommand):
             file_path_list = [options["file-path"]]
 
         # get or create RevenueName
-        revenue_name, created = RevenueName.objects.get_or_create(name=options["revenue-name"])
+        revenue_name, created = RevenueName.objects.get_or_create(name=REVENUE_NAME_BERLIN)
 
         for file_path in file_path_list:
             invoice = BerlinInvoice(file_path)

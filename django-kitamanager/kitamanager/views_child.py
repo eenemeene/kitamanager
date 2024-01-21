@@ -8,7 +8,7 @@ from kitamanager.forms import HistoryDateForm
 from kitamanager.models import Child, ChildContract, ChildPaymentPlan, ChildPaymentTable, RevenueEntry
 from dateutil.relativedelta import relativedelta
 from django.http import JsonResponse
-from kitamanager.definitions import CHART_COLORS
+from kitamanager.definitions import CHART_COLORS, REVENUE_NAME_BERLIN
 
 
 @login_required
@@ -210,8 +210,7 @@ def child_charts_pay_income_vs_invoice(request):
     dt_from = historydate - relativedelta(years=2, month=1)
     dt_to = historydate + relativedelta(years=1, month=6)
 
-    # FIXME: do not hardcode "senatsabrechnung" as name here!
-    invoice_name = "senatsabrechnung"
+    invoice_name = REVENUE_NAME_BERLIN
     labels = []
     datasets = [
         {
