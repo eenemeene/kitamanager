@@ -31,6 +31,7 @@ class PersonManager(models.Manager):
             self.prefetch_related("contracts")
             .annotate(start_min=models.Min("contracts__start"))
             .filter(start_min__gt=date)
+            .order_by("start_min")
         )
 
 
