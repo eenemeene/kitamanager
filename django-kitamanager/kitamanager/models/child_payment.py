@@ -37,6 +37,9 @@ class ChildPaymentTable(models.Model):
     plan = models.ForeignKey("ChildPaymentPlan", on_delete=models.CASCADE, related_name="tables")
     start = models.DateField(help_text=_("start date"))
     end = models.DateField(help_text=_("end date"))
+    hours = models.DecimalField(
+        max_digits=4, decimal_places=2, default=39.40, help_text=_("weekly working hours for full time")
+    )
     comment = models.TextField(blank=True)
 
     def __str__(self):
