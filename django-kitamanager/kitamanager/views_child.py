@@ -23,9 +23,12 @@ def child_list(request):
     else:
         form = HistoryDateForm()
 
+    sum_requirements, sum_requirements_hours_per_week = ChildContract.objects.sum_requirements(date=historydate)
     context = dict(
         object_list=ChildContract.objects.by_date(historydate),
         sum_payments=ChildContract.objects.sum_payments(date=historydate),
+        sum_requirements=sum_requirements,
+        sum_requirements_hours_per_week=sum_requirements_hours_per_week,
         historydate=historydate,
         form=form,
     )

@@ -24,6 +24,10 @@
             <th>{% translate "∑ payments" %}</th>
             <td>{{ sum_payments }} €</td>
           </tr>
+          <tr>
+            <th>{% translate "∑ requirements" %}</th>
+            <td>{{ sum_requirements_hours_per_week|floatformat:"2" }} {% translate "h/week" %}</td>
+          </tr>
         </table>
       </div>
     </div>
