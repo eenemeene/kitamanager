@@ -10,7 +10,7 @@
     {% for table in object_list %}
     <div class="box">
     <h6 class="subtitle">
-      {{ table.start|date:"SHORT_DATE_FORMAT" }} - {{ table.end|date:"SHORT_DATE_FORMAT" }}
+      {{ table.start|date:"SHORT_DATE_FORMAT" }} - {{ table.end|date:"SHORT_DATE_FORMAT" }} ({{ table.hours }} {%translate "hours/week for a full time job" %})
     </h6>
     {% if table.comment %}
     <p>
