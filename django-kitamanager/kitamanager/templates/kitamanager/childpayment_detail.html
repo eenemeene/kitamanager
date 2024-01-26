@@ -6,6 +6,15 @@
     <h5 class="title">
       {% translate "children payments for plan " %}: {{ plan.name }}
     </h5>
+  <div class="notification is-info is-light">
+    {% blocktranslate trimmed %}
+    Those tables do contain the rules how much money the Kita
+    gets for a child with different age and properties.</br>
+    It also contains the requirements in terms of required employees.
+    Eg. a requirement of 1.0 and 39,40 h/week for a full time job means,
+    that 39,40 h/week are required.
+    {% endblocktranslate %}
+  </div>
 
     {% for table in object_list %}
     <div class="box">
@@ -22,7 +31,7 @@
           <th>{% translate "child age" %}</th>
           <th>{% translate "propery name" %}</th>
           <th>{% translate "pay income (in €)" %}</th>
-          <th>{% translate "requirement (employee in %)" %}</th>
+          <th>{% translate "requirement (employees full time)" %}</th>
           <th>{% translate "comment" %}</th>
         </tr>
         {% for table_entry in table.entries.all %}
