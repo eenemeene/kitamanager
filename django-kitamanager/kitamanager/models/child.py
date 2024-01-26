@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.postgres.fields import ArrayField
 import logging
 from kitamanager.models.person import Person, PersonContract, PersonContractManager
-from kitamanager.models.child_payment import ChildPaymentTableEntry
+from kitamanager.models.child_payment import ChildPaymentTable, ChildPaymentTableEntry
 from decimal import Decimal
 from dateutil.relativedelta import relativedelta
 from typing import Dict, List
@@ -36,6 +36,23 @@ class ChildContractManager(PersonContractManager):
             if p:
                 payments += p
         return payments
+
+    def sum_requirements(self, date: datetime.date):
+        """
+        Sum of all requirements for the given date
+        That sum is the full time positions per week
+        :return: a tuple with sum of requirements and sum of requirements in h/week
+            full time work
+        :rtype: Tuple[Decimal, Decimal]
+        """
+        requirements = Decimal("0")
+        requirements_hours_per_week = Decimal("0")
+        for c in self.by_date(date):
+            r = c.requirement(date)
+            if r:
+                requirements += r[0]
+                requirements_hours_per_week += r[0] * r[1]
+        return requirements, requirements_hours_per_week
 
     def count_by_month(self, from_dt: datetime.date, to_dt: datetime.date) -> Dict[int, List[int]]:
         """
@@ -103,6 +120,9 @@ class ChildContract(PersonContract):
     def requirement(self, date: datetime.date):
         """
         The requirement for the given contract
+        :return: Either None or a tuple with the sum for requirements and the hours for
+            full time work
+        :rtype: Optional[Tuple[Decimal, Decimal]]
         """
         if date < self.start or date >= self.end:
             raise ValueError(
@@ -112,11 +132,18 @@ class ChildContract(PersonContract):
 
         # implicitly assume that every child also has the "base" tag
         pay_tags_with_base = self.pay_tags + ["base"]
+        try:
+            table = ChildPaymentTable.objects.get(plan=self.pay_plan, start__lte=date, end__gt=date)
+        except ChildPaymentTable.DoesNotExist:
+            return None
+
         qs = ChildPaymentTableEntry.objects.filter(
-            table__plan=self.pay_plan,
-            table__start__lte=date,
-            table__end__gt=date,
+            table=table,
             age__contains=self.person.age(date),
             name__in=pay_tags_with_base,
         )
-        return qs.aggregate(models.Sum("requirement"))["requirement__sum"]
+        sum = qs.aggregate(models.Sum("requirement"))["requirement__sum"]
+        if not sum:
+            return None
+
+        return (sum, table.hours)

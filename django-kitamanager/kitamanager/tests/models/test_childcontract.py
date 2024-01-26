@@ -1,7 +1,7 @@
 import pytest
 from decimal import Decimal
 from dateutil.parser import parse
-from kitamanager.models import Child, ChildContract
+from kitamanager.models import Child, ChildContract, ChildPaymentPlan, ChildPaymentTable, ChildPaymentTableEntry
 from kitamanager.tests.common import _childcontract_create
 
 
@@ -147,13 +147,13 @@ def test_childcontract_requirement():
     cc3 = _childcontract_create(c, start="2021-07-01", end="2021-08-01", pay_tags=["ganztag"])
     cc3.refresh_from_db()
     assert cc3.person.age(parse("2021-07-05").date()) == 1
-    assert cc3.requirement(parse("2021-07-05").date()) == Decimal("0.1")
+    assert cc3.requirement(parse("2021-07-05").date()) == (Decimal("0.1"), Decimal("39.4"))
 
     # test the "base" tag
     cc4 = _childcontract_create(c, start="2024-01-01", end="2024-02-01", pay_tags=["ganztag"])
     cc4.refresh_from_db()
     assert cc4.person.age(parse("2024-01-05").date()) == 3
-    assert cc4.requirement(parse("2024-01-05").date()) == Decimal("0.53")
+    assert cc4.requirement(parse("2024-01-05").date()) == (Decimal("0.53"), Decimal("39.4"))
 
 
 @pytest.mark.django_db
@@ -181,6 +181,65 @@ def test_childcontract_sum_payment():
 
     # with single child contract
     assert ChildContract.objects.sum_payments(parse("2024-01-01").date()) == Decimal("322")
+
+
+@pytest.mark.django_db
+def test_childcontract_sum_requirements():
+    """
+    Test the sum_requirements() ChildContractManager method
+    """
+    c1 = Child.objects.create(first_name="1", last_name="11", birth_date="2020-06-29")
+    c1.refresh_from_db()
+
+    cc1 = _childcontract_create(c1, start="2021-07-01", end="2021-08-01", pay_tags=["ganztag"])
+    cc1.refresh_from_db()
+
+    c2 = Child.objects.create(first_name="2", last_name="22", birth_date="2020-06-29")
+    c2.refresh_from_db()
+
+    cc2 = _childcontract_create(c2, start="2021-07-01", end="2025-01-01", pay_tags=["ganztag"])
+    cc2.refresh_from_db()
+
+    # without any child contract, it should be 0
+    assert ChildContract.objects.sum_requirements(parse("1981-03-29").date()) == (0, 0)
+
+    # with both child contracts
+    assert ChildContract.objects.sum_requirements(parse("2021-07-01").date()) == (Decimal("0.2"), Decimal("7.88"))
+
+    # with single child contract
+    assert ChildContract.objects.sum_requirements(parse("2024-01-01").date()) == (Decimal("0.53"), Decimal("20.882"))
+
+
+@pytest.mark.django_db
+def test_childcontract_sum_requirements_multiple_paymentplans():
+    """
+    Test the sum_requirements() ChildContractManager method with multiple different payment plans
+    """
+    pp1 = ChildPaymentPlan.objects.create(name="plan1")
+    ppt1 = ChildPaymentTable.objects.create(plan=pp1, start="2020-01-01", end="2022-01-01", hours=10)
+    ChildPaymentTableEntry.objects.create(table=ppt1, age=[0, 2], name="ganztag", pay=100, requirement=0.1)
+
+    pp2 = ChildPaymentPlan.objects.create(name="plan2")
+    ppt2 = ChildPaymentTable.objects.create(plan=pp2, start="2020-01-01", end="2022-01-01", hours=40)
+    ChildPaymentTableEntry.objects.create(table=ppt2, age=[0, 2], name="ganztag", pay=100, requirement=0.2)
+
+    c1 = Child.objects.create(first_name="1", last_name="11", birth_date="2020-06-29")
+    c1.refresh_from_db()
+
+    cc1 = _childcontract_create(c1, start="2021-07-01", end="2021-08-01", pay_plan=pp1, pay_tags=["ganztag"])
+    cc1.refresh_from_db()
+
+    c2 = Child.objects.create(first_name="2", last_name="22", birth_date="2020-06-29")
+    c2.refresh_from_db()
+
+    cc2 = _childcontract_create(c2, start="2021-07-01", end="2025-01-01", pay_plan=pp2, pay_tags=["ganztag"])
+    cc2.refresh_from_db()
+
+    # without any child contract, it should be 0
+    assert ChildContract.objects.sum_requirements(parse("1981-03-29").date()) == (0, 0)
+
+    # with both child contracts
+    assert ChildContract.objects.sum_requirements(parse("2021-07-01").date()) == (Decimal("0.3"), Decimal("9"))
 
 
 @pytest.mark.django_db

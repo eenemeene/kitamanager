@@ -13,7 +13,7 @@
         <th>{% translate "pay plan" %}</th>
         <th>{% translate "pay tags" %}</th>
         <th>{% translate "payment (€/month)" %}</th>
-        <th>{% translate "required employee in %" %}</th>
+        <th>{% translate "required employee" %}</th>
       </tr>
     </thead>
     <tbody>
@@ -36,7 +36,9 @@
           </div>
         </td>
         <td>{{ obj|payment:historydate|floatformat:"2"|default:"-" }} €</td>
-        <td>{{ obj|requirement:historydate|floatformat:"3"|default:"-" }}</td>
+        {% with req=obj|requirement:historydate %}
+        <td>{{ req.0|floatformat:"3"|default:"-" }} ({{ req.1 }} {% translate "h/week full time" %})</td>
+        {% endwith %}
       </tr>
       {% endfor %}
     <tbody>
