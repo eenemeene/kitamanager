@@ -20,7 +20,7 @@
       {% for obj in object_list %}
       <tr>
         <td>
-          <a class="button is-link is-small is-outlined" href="{% url 'admin:kitamanager_employee_change' obj.person.pk %}">{% translate "edit" %}</a>
+          <a class="button is-link is-small is-outlined" href="{% url 'admin:kitamanager_child_change' obj.person.pk %}">{% translate "edit" %}</a>
           <a class="button is-link is-small is-outlined" href="{{ obj.person.get_absolute_url }}">{% translate "details" %}</a>
         </td>
         <td>{{ obj.person.last_name }}</td>
