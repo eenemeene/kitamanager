@@ -4,6 +4,7 @@ from django.contrib.auth import views as auth_views
 from kitamanager.views_employee import (
     employee_list,
     employee_detail,
+    employee_statistics,
     employee_bonuspayment,
     employeepayment_list,
     employeepayment_detail,
@@ -23,6 +24,8 @@ from kitamanager.views_child import (
     child_charts_pay_income_vs_invoice,
 )
 
+from kitamanager.views_statistic import statistic_charts_child_requirement_vs_employee_hours
+
 
 app_name = "kitamanager"
 
@@ -35,6 +38,7 @@ urlpatterns = [
     path("employeepayment/", employeepayment_list, name="employeepayment-list"),
     path("employeepayment/<str:plan>/", employeepayment_detail, name="employeepayment-detail"),
     path("employee/", employee_list, name="employee-list"),
+    path("employee/statistics/", employee_statistics, name="employee-statistics"),
     path("employee/bonus/", employee_bonuspayment, name="employee-bonuspayment"),
     path("employee/<int:pk>/", employee_detail, name="employee-detail"),
     path(
@@ -69,6 +73,12 @@ urlpatterns = [
     ),
     path("childpayment/", childpayment_list, name="childpayment-list"),
     path("childpayment/<str:plan>/", childpayment_detail, name="childpayment-detail"),
+    # statistics
+    path(
+        "statistic/charts/child-requirement-vs-employee-hours/",
+        statistic_charts_child_requirement_vs_employee_hours,
+        name="statistic-charts-child-requirement-vs-employee-hours",
+    ),
     # bankaccount
     path("bankaccount/", bankaccount_list, name="bankaccount-list"),
     path(

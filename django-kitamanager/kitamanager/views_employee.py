@@ -85,6 +85,29 @@ def employee_detail(request, pk):
 
 
 @login_required
+def employee_statistics(request):
+    historydate = datetime.date.today()
+    if request.method == "GET":
+        form = HistoryDateForm(request.GET)
+        if form.is_valid():
+            historydate = form.cleaned_data["historydate"]
+        else:
+            form = HistoryDateForm(initial={"historydate": historydate.strftime("%Y-%m-%d")})
+    else:
+        form = HistoryDateForm()
+
+    context = dict(
+        historydate=historydate,
+        form=form,
+    )
+    return render(
+        request,
+        "kitamanager/employee_statistics.html",
+        context=context,
+    )
+
+
+@login_required
 def employee_bonuspayment(request):
     """
     Calculate a possible bonus payment for Employees
