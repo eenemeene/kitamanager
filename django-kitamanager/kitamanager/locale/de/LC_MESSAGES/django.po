@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kitamanager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-26 21:33+0000\n"
-"PO-Revision-Date: 2024-01-26 22:37+0100\n"
+"POT-Creation-Date: 2024-01-27 12:22+0000\n"
+"PO-Revision-Date: 2024-01-27 13:23+0100\n"
 "Last-Translator: Thomas Bechtold <thomasbechtold@jpberlin.de>\n"
 "Language-Team: German <>\n"
 "Language: de\n"
@@ -281,12 +281,12 @@ msgid "Employees"
 msgstr "Mitarbeiter"
 
 #: django-kitamanager/kitamanager/templates/kitamanager/base.html:31
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:47
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:50
 msgid "List"
 msgstr "Liste"
 
 #: django-kitamanager/kitamanager/templates/kitamanager/base.html:34
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:53
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:56
 msgid "Payment plans"
 msgstr "Bezahlplan"
 
@@ -295,27 +295,28 @@ msgstr "Bezahlplan"
 msgid "Bonus payment calculator"
 msgstr "Sonderzahlungsrechner"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:43
-msgid "Children"
-msgstr "Kinder"
-
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:50
-msgid "Future"
-msgstr "Zukunft"
-
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:56
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:40
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:59
 msgid "Statistics"
 msgstr "Statistiken"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:62
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:46
+msgid "Children"
+msgstr "Kinder"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:53
+msgid "Future"
+msgstr "Zukunft"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:65
 msgid "Finance"
 msgstr "Finanzen"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:66
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:69
 msgid "bank accounts"
 msgstr "Kontostände"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:71
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:74
 msgid "Admin"
 msgstr "Admin"
 
@@ -703,6 +704,18 @@ msgstr ""
 msgid "employees"
 msgstr "MitarbeiterInnen"
 
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_statistics.html:10
+msgid "children requirements vs. employee working hours"
+msgstr "Kinder Anforderungen vs. Mitarbeiter Arbeitsstunden"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_statistics.html:15
+msgid ""
+"Children requirements vs. Employee working hours. Only the child and team "
+"hours count for Employee working hours here."
+msgstr ""
+"Kinder Anforderungen vs. Mitarbeiter Arbeitsstunden. Nur die Arbeitsstunden "
+"\"Kind\" und \"Team\" werden berücksichtigt."
+
 #: django-kitamanager/kitamanager/templates/kitamanager/employeecontract_list.html:9
 msgid "Employee count grouped by area"
 msgstr "Anzahl MitarbeiterInnen per Bereich"
@@ -772,8 +785,8 @@ msgid "Children grouped by area (on {historydate}"
 msgstr "Kinder per Bereich (am {historydate}"
 
 #: django-kitamanager/kitamanager/views_child.py:150
-#: django-kitamanager/kitamanager/views_employee.py:157
-#: django-kitamanager/kitamanager/views_employee.py:189
+#: django-kitamanager/kitamanager/views_employee.py:180
+#: django-kitamanager/kitamanager/views_employee.py:212
 msgid "Count"
 msgstr "Anzahl"
 
@@ -790,15 +803,27 @@ msgstr "Berechnete Kindbezahlung (in €)"
 msgid "invoice %(invoice_name)s (in €)"
 msgstr "Rechnung %(invoice_name)s (in €)"
 
-#: django-kitamanager/kitamanager/views_employee.py:152
+#: django-kitamanager/kitamanager/views_employee.py:175
 #, python-brace-format
 msgid "Employees grouped by area (on {historydate}"
 msgstr "MitarbeiterInnen per Bereich (am {historydate})"
 
-#: django-kitamanager/kitamanager/views_employee.py:184
+#: django-kitamanager/kitamanager/views_employee.py:207
 #, python-brace-format
 msgid "Employee working hours grouped by area (on {historydate}"
 msgstr "Arbeitsstunden per Bereich (an {historydate})"
+
+#: django-kitamanager/kitamanager/views_statistic.py:25
+msgid "requirements from children (in h/week)"
+msgstr "Anforderungen von Kinders (in h/Woche)"
+
+#: django-kitamanager/kitamanager/views_statistic.py:30
+msgid "employee child+team working hours (in h/week)"
+msgstr "Mitarbeiter Arbeitsstunden Kind + Team (in h/Woche)"
+
+#: django-kitamanager/kitamanager/views_statistic.py:49
+msgid "Children requirements vs. Employee working hours"
+msgstr "Kinder Anforderungen vs. Mitarbeiter Arbeitsstunden."
 
 #~ msgid ""
 #~ "\n"
