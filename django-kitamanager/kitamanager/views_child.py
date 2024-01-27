@@ -167,7 +167,7 @@ def child_charts_count_by_month(request):
     historydate = forms.DateField().clean(request.GET.get("historydate", datetime.date.today()))
 
     data = ChildContract.objects.count_by_month(
-        historydate - relativedelta(years=3, month=1), historydate + relativedelta(years=2, month=12)
+        historydate - relativedelta(years=3, month=1), historydate + relativedelta(years=2, month=1, day=1)
     )
 
     datasets = []

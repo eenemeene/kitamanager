@@ -107,7 +107,6 @@ def test_child_charts_count_by_month(admin_client):
         {"label": 2019, "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "backgroundColor": "#bc5090"},
         {"label": 2020, "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "backgroundColor": "#58508d"},
         {"label": 2021, "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "backgroundColor": "#003f5c"},
-        {"label": 2022, "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "backgroundColor": "#444e86"},
     ]
 
     # with some data
@@ -121,5 +120,4 @@ def test_child_charts_count_by_month(admin_client):
         {"label": 2019, "data": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], "backgroundColor": "#bc5090"},
         {"label": 2020, "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "backgroundColor": "#58508d"},
         {"label": 2021, "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "backgroundColor": "#003f5c"},
-        {"label": 2022, "data": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "backgroundColor": "#444e86"},
     ]
