@@ -24,7 +24,10 @@ from kitamanager.views_child import (
     child_charts_pay_income_vs_invoice,
 )
 
-from kitamanager.views_statistic import statistic_charts_child_requirement_vs_employee_hours
+from kitamanager.views_statistic import (
+    statistic_charts_child_requirement_vs_employee_hours,
+    statistic_charts_child_requirement_vs_employee_hours_percent,
+)
 
 
 app_name = "kitamanager"
@@ -78,6 +81,11 @@ urlpatterns = [
         "statistic/charts/child-requirement-vs-employee-hours/",
         statistic_charts_child_requirement_vs_employee_hours,
         name="statistic-charts-child-requirement-vs-employee-hours",
+    ),
+    path(
+        "statistic/charts/child-requirement-vs-employee-hours-percent/",
+        statistic_charts_child_requirement_vs_employee_hours_percent,
+        name="statistic-charts-child-requirement-vs-employee-hours-percent",
     ),
     # bankaccount
     path("bankaccount/", bankaccount_list, name="bankaccount-list"),
