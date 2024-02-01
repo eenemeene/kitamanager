@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 from kitamanager.models import (
     ChildContract,
+    ChildPaymentTable,
     Area,
 )
 
@@ -20,9 +21,10 @@ class ChildContractForm(ModelForm):
 
     def clean_pay_tags(self):
         # make sure only tags from the selected pay_plan for the given date are used
-        childpayment_tables = self.cleaned_data["pay_plan"].tables.filter(
-            start__lte=self.cleaned_data["start"], end__gt=self.cleaned_data["end"]
-        )
+
+        childpayment_tables = ChildPaymentTable.objects.by_daterange(
+            self.cleaned_data["start"], self.cleaned_data["end"]
+        ).filter(plan=self.cleaned_data["pay_plan"])
         valid_tags = set()
         for cpt in childpayment_tables:
             for e in list(cpt.entries.values_list("name", flat=True)):

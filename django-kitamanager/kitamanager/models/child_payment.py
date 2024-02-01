@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.postgres.fields import RangeOperators, RangeBoundary
@@ -29,6 +30,23 @@ class ChildPaymentPlan(models.Model):
         return reverse("kitamanager:childpayment-detail", args=[self.pk])
 
 
+class ChildPaymentTableManager(models.Manager):
+    """
+    Custom Manager for the ChildPaymentTable model
+    """
+
+    def by_daterange(self, start: datetime.date, end: datetime.date):
+        """
+        Filter tables for the plan by date range
+        :param start: the start date (included in the result)
+        :type start: datetime.date
+        :param end: the end date (excluded in the result)
+        :type end: datetime.date
+
+        """
+        return self.filter(start__lte=end, end__gt=start)
+
+
 class ChildPaymentTable(models.Model):
     """
     A ChildPaymentTable which is related to a single ChildPaymentPlan
@@ -41,6 +59,9 @@ class ChildPaymentTable(models.Model):
         max_digits=4, decimal_places=2, default=39.40, help_text=_("weekly working hours for full time")
     )
     comment = models.TextField(blank=True)
+
+    # default and custom managers
+    objects = ChildPaymentTableManager()
 
     def __str__(self):
         return f"{self.plan}: {self.start} - {self.end}"
