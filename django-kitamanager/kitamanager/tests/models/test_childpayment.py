@@ -39,6 +39,71 @@ def test_childpaymenttable_create():
         ChildPaymentTable.objects.create(plan=p2, start="2021-06-01", end="2023-12-31")
 
 
+@pytest.mark.parametrize(
+    "tables,check_start,check_end,expected_count",
+    [
+        # without any tables
+        ([], "2023-01-01", "2024-01-01", 0),
+        # with tables but check outside of tables
+        ([("2020-01-01", "2021-01-01")], "2023-01-01", "2024-01-01", 0),
+        # with tables check inside
+        ([("2020-01-01", "2021-01-01")], "2020-01-01", "2021-01-01", 1),
+        # with tables check multiple overlapping
+        (
+            [
+                ("2020-01-01", "2021-01-01"),
+                ("2021-01-01", "2022-01-01"),
+            ],
+            "2020-01-01",
+            "2022-01-01",
+            2,
+        ),
+        # with tables check multiple overlapping (borders)
+        (
+            [
+                ("2020-01-01", "2021-01-01"),
+                ("2021-01-01", "2022-01-01"),
+            ],
+            "2020-01-01",
+            "2021-01-01",
+            2,
+        ),
+        # with tables check partly overlapping
+        (
+            [
+                ("2020-01-01", "2021-01-01"),
+                ("2021-01-01", "2022-01-01"),
+            ],
+            "2020-01-01",
+            "2020-06-01",
+            1,
+        ),
+        # with tables check partly overlapping
+        (
+            [
+                ("2020-01-01", "2021-01-01"),
+                ("2021-01-01", "2022-01-01"),
+            ],
+            "2021-06-01",
+            "2022-06-01",
+            1,
+        ),
+    ],
+)
+@pytest.mark.django_db
+def test_childpaymenttable_by_daterange(tables, check_start, check_end, expected_count):
+    """
+    Test the ChildPaymentTableManager().by_daterange() method
+    """
+    p1 = ChildPaymentPlan.objects.create(name="plan1")
+    for table_date in tables:
+        ChildPaymentTable.objects.create(plan=p1, start=table_date[0], end=table_date[1])
+    assert (
+        ChildPaymentTable.objects.by_daterange(start=check_start, end=check_end).filter(plan=p1).count()
+        == expected_count
+    )
+
+
 @pytest.mark.django_db
 def test_childpaymenttableentry_create():
     """
