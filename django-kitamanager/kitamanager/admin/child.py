@@ -44,6 +44,10 @@ class ChildContractForm(ModelForm):
 class ChildContractAdmin(admin.ModelAdmin):
     form = ChildContractForm
     list_display = ["get_child_first_name", "get_child_last_name", "start", "end", "area", "pay_plan", "pay_tags"]
+    search_fields = [
+        "person__first_name",
+        "person__last_name",
+    ]
     list_filter = ["area", "pay_tags"]
 
     @admin.display(ordering="person__first_name", description=_("first name"))
