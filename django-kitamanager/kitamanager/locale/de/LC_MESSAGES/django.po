@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kitamanager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-27 12:22+0000\n"
-"PO-Revision-Date: 2024-01-27 13:23+0100\n"
+"POT-Creation-Date: 2024-02-14 10:05+0000\n"
+"PO-Revision-Date: 2024-02-14 11:11+0100\n"
 "Last-Translator: Thomas Bechtold <thomasbechtold@jpberlin.de>\n"
 "Language-Team: German <>\n"
 "Language: de\n"
@@ -37,12 +37,12 @@ msgstr "Kontostand Eintrag {baentry} erfolgreich erstellt"
 msgid "bank account entry {baentry} updated successful"
 msgstr "Konstand Eintrag {baentry} erfolgreich aktualisiert"
 
-#: django-kitamanager/kitamanager/admin/child.py:16
+#: django-kitamanager/kitamanager/admin/child.py:17
 #, python-format
 msgid "area %(area)s can not be selected for a child"
 msgstr "Bereich %(area)s kann nicht für ein Kind ausgewählt werden"
 
-#: django-kitamanager/kitamanager/admin/child.py:34
+#: django-kitamanager/kitamanager/admin/child.py:36
 #, python-format
 msgid ""
 "The pay tags '%(invalid_tags)s' are not valid. valid tags are "
@@ -50,7 +50,7 @@ msgid ""
 msgstr ""
 "Die Tags '%(invalid_tags)s' sind ungültig. Gültige tags sind '%(valid_tags)s'"
 
-#: django-kitamanager/kitamanager/admin/child.py:47
+#: django-kitamanager/kitamanager/admin/child.py:53
 #: django-kitamanager/kitamanager/admin/employee.py:33
 #: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:22
 #: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:10
@@ -58,7 +58,7 @@ msgstr ""
 msgid "first name"
 msgstr "Vorname"
 
-#: django-kitamanager/kitamanager/admin/child.py:51
+#: django-kitamanager/kitamanager/admin/child.py:57
 #: django-kitamanager/kitamanager/admin/employee.py:37
 #: django-kitamanager/kitamanager/templates/kitamanager/child_list_future.html:21
 #: django-kitamanager/kitamanager/templates/kitamanager/child_table.inc.html:9
@@ -141,33 +141,33 @@ msgstr ""
 "Liste mit komma separierten Bezahltags. Dieses müssen mit dem Bezahlplan "
 "übereinstimmen"
 
-#: django-kitamanager/kitamanager/models/child_payment.py:38
+#: django-kitamanager/kitamanager/models/child_payment.py:56
 #: django-kitamanager/kitamanager/models/revenue.py:47
 msgid "start date"
 msgstr "Start Datum"
 
-#: django-kitamanager/kitamanager/models/child_payment.py:39
+#: django-kitamanager/kitamanager/models/child_payment.py:57
 #: django-kitamanager/kitamanager/models/revenue.py:48
 msgid "end date"
 msgstr "Ende Datum"
 
-#: django-kitamanager/kitamanager/models/child_payment.py:41
+#: django-kitamanager/kitamanager/models/child_payment.py:59
 msgid "weekly working hours for full time"
 msgstr "Arbeitsstunden pro Woche Vollzeit"
 
-#: django-kitamanager/kitamanager/models/child_payment.py:75
+#: django-kitamanager/kitamanager/models/child_payment.py:96
 msgid "age (in years) range for this property"
 msgstr "Alterszeitraum (in Jahren) für diese Eigenschaft"
 
-#: django-kitamanager/kitamanager/models/child_payment.py:77
+#: django-kitamanager/kitamanager/models/child_payment.py:98
 msgid "property name"
 msgstr "Eigenschaftsname"
 
-#: django-kitamanager/kitamanager/models/child_payment.py:79
+#: django-kitamanager/kitamanager/models/child_payment.py:100
 msgid "imcoming pay (in Euro) to get for this property"
 msgstr "Einnahmen (in Euro) für diese Eigenschaft"
 
-#: django-kitamanager/kitamanager/models/child_payment.py:82
+#: django-kitamanager/kitamanager/models/child_payment.py:103
 msgid "required employees in % (eg. 0.5 means half a person)"
 msgstr "Benötigtes Personal in Prozent (zB. 0.5 bedeutet eine halbe Stelle)"
 
@@ -276,47 +276,47 @@ msgstr "Summe aller Kontostände (in €) der letzten Monate"
 msgid "Kitamanager"
 msgstr "Kitaverwaltung"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:27
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:32
 msgid "Employees"
 msgstr "Mitarbeiter"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:31
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:50
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:36
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:55
 msgid "List"
 msgstr "Liste"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:34
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:56
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:39
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:61
 msgid "Payment plans"
 msgstr "Bezahlplan"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:37
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:42
 #: django-kitamanager/kitamanager/templates/kitamanager/employee_bonuspayment.html:7
 msgid "Bonus payment calculator"
 msgstr "Sonderzahlungsrechner"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:40
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:59
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:45
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:64
 msgid "Statistics"
 msgstr "Statistiken"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:46
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:51
 msgid "Children"
 msgstr "Kinder"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:53
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:58
 msgid "Future"
 msgstr "Zukunft"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:65
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:70
 msgid "Finance"
 msgstr "Finanzen"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:69
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:74
 msgid "bank accounts"
 msgstr "Kontostände"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/base.html:74
+#: django-kitamanager/kitamanager/templates/kitamanager/base.html:79
 msgid "Admin"
 msgstr "Admin"
 
@@ -704,11 +704,28 @@ msgstr ""
 msgid "employees"
 msgstr "MitarbeiterInnen"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/employee_statistics.html:10
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_statistics.html:12
+#, python-format
+msgid "children requirements vs. employee working hours in percent over 100%%"
+msgstr ""
+"Kinder Anforderungen vs. Mitarbeiter Arbeitsstunden in Prozent über 100%%"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_statistics.html:17
+#, python-format
+msgid ""
+"Children requirements vs. Employee working hours. Only the child and team "
+"hours count for Employee working hours here. Eg. 10%% means 110%%. So "
+"everything over 0 is good."
+msgstr ""
+"Kinder Anforderungen vs. Mitarbeiter Arbeitsstunden. Nur die Arbeitsstunden "
+"\"Kind\" und \"Team\" werden berücksichtigt. Z.B. 10%% bedeutet 110%% . Also "
+"alles über 0 ist gut."
+
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_statistics.html:28
 msgid "children requirements vs. employee working hours"
 msgstr "Kinder Anforderungen vs. Mitarbeiter Arbeitsstunden"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/employee_statistics.html:15
+#: django-kitamanager/kitamanager/templates/kitamanager/employee_statistics.html:33
 msgid ""
 "Children requirements vs. Employee working hours. Only the child and team "
 "hours count for Employee working hours here."
@@ -821,9 +838,18 @@ msgstr "Anforderungen von Kinders (in h/Woche)"
 msgid "employee child+team working hours (in h/week)"
 msgstr "Mitarbeiter Arbeitsstunden Kind + Team (in h/Woche)"
 
-#: django-kitamanager/kitamanager/views_statistic.py:49
+#: django-kitamanager/kitamanager/views_statistic.py:50
 msgid "Children requirements vs. Employee working hours"
 msgstr "Kinder Anforderungen vs. Mitarbeiter Arbeitsstunden."
+
+#: django-kitamanager/kitamanager/views_statistic.py:72
+msgid "requirements (in %)"
+msgstr "Anforderungen (in %%)"
+
+#: django-kitamanager/kitamanager/views_statistic.py:96
+#, python-format
+msgid "Children requirements vs. Employee working hours in % over 100"
+msgstr ""
 
 #~ msgid ""
 #~ "\n"
