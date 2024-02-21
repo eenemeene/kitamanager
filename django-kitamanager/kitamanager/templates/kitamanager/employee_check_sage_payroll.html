@@ -1,0 +1,57 @@
+{% extends "kitamanager/base.html" %}
+{% load i18n %}
+{% block content %}
+
+<div class="box">
+  <h5 class="title">
+    {% translate "check Sage payroll" %}
+  </h5>
+  <div class="notification is-info is-light">
+    {% blocktranslate trimmed %}
+    The payroll check can be used to compare a Sage payroll (usually sent from Daks)
+    with the data available in Kitamanager
+    {% endblocktranslate %}
+  </div>
+  <form enctype="multipart/form-data" action="{% url 'kitamanager:employee-check-sage-payroll' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <input type="submit" value={% translate "check" %}>
+  </form>
+</div>
+{% if data %}
+<div class="box">
+  <h5 class="title">
+    {% translate "Compare for " %}{{ payroll_date|date:"M Y" }}
+  </h5>
+  <div class="table-container">
+    <table class="table is-striped is-hoverable">
+      <thead>
+        <tr>
+          <th>{% translate "name" %}</th>
+          <th>{% translate "payroll" %}</th>
+          <th>{% translate "kitamanager" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for person, d in data.items %}
+        <tr {% if d.payroll != d.kitamanager %}class="has-text-danger"{% endif %}>
+          <td>{{ person }}</td>
+          {% if d.payroll %}
+          <td>{% translate "hours" %}: {{ d.payroll.hours|floatformat:2 }}, {% translate "pay group" %}: {{ d.payroll.pay_group }}, {% translate "pay level" %}: {{ d.payroll.pay_level }}</td>
+          {% else %}
+          <td>-</td>
+          {% endif %}
+          {% if d.kitamanager %}
+          <td>{% translate "hours" %}: {{ d.kitamanager.hours|floatformat:2 }}, {% translate "pay group" %}: {{ d.kitamanager.pay_group }}, {% translate "pay level" %}: {{ d.kitamanager.pay_level }}</td>
+          {% else %}
+          <td>-</td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      <tbody>
+    </table>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}

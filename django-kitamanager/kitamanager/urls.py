@@ -8,6 +8,7 @@ from kitamanager.views_employee import (
     employee_bonuspayment,
     employeepayment_list,
     employeepayment_detail,
+    employee_check_sage_payroll,
     employee_charts_count_group_by_area,
     employee_charts_hours_group_by_area,
 )
@@ -43,6 +44,7 @@ urlpatterns = [
     path("employee/", employee_list, name="employee-list"),
     path("employee/statistics/", employee_statistics, name="employee-statistics"),
     path("employee/bonus/", employee_bonuspayment, name="employee-bonuspayment"),
+    path("employee/check-sage-payroll", employee_check_sage_payroll, name="employee-check-sage-payroll"),
     path("employee/<int:pk>/", employee_detail, name="employee-detail"),
     path(
         "employee/charts/count-group-by-area/",

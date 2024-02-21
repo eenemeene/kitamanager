@@ -44,6 +44,9 @@
                 <a class="navbar-item" href="{% url 'kitamanager:employee-statistics' %}">
                   {% translate "Statistics" %}
                 </a>
+                <a class="navbar-item" href="{% url 'kitamanager:employee-check-sage-payroll' %}">
+                  {% translate "Payroll check" %}
+                </a>
               </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
@@ -72,6 +75,9 @@
               <div class="navbar-dropdown">
                 <a class="navbar-item" href="{% url 'kitamanager:bankaccount-list' %}">
                   {% translate "bank accounts" %}
+                </a>
+                <a class="navbar-item" href="{% url 'kitamanager:employee-check-sage-payroll' %}">
+                  {% translate "check Sage payroll" %}
                 </a>
               </div>
             </div>
