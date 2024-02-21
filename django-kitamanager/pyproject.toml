@@ -25,7 +25,8 @@ dependencies = [
     "excel-formulas-calculator",
     "django-cors-headers",
     "django-debug-toolbar",
-
+    "pypdf",
+    "dateparser",
 ]
 dynamic = ["version"]
 

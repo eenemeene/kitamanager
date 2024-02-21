@@ -2,7 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from django import forms
 from kitamanager.models import EmployeeContract, Employee, EmployeePaymentPlan, EmployeePaymentTable
-from kitamanager.forms import HistoryDateForm, EmployeeBonusPaymentForm
+from kitamanager.forms import HistoryDateForm, EmployeeBonusPaymentForm, EmployeeCheckSagePayrollForm
+from kitamanager.sage_payroll import SagePayrolls
 from django.utils.translation import gettext_lazy as _
 import datetime
 from django.http import JsonResponse
@@ -152,6 +153,55 @@ def employee_bonuspayment(request):
         request,
         "kitamanager/employee_bonuspayment.html",
         {"data": data, "year": year, "pay": pay, "pay_total_all": pay_total_all, "form": form},
+    )
+
+
+def _payrolls_data(payrolls):
+    """
+    build datastructure for data from payrolls and kitamanager
+    """
+    data = dict()
+    # collect data for employees from kitamanager
+    for employee in EmployeeContract.objects.by_date(payrolls.date):
+        data[f"{employee.person.last_name}, {employee.person.first_name}"] = dict()
+        data[f"{employee.person.last_name}, {employee.person.first_name}"]["kitamanager"] = {
+            "hours": employee.hours_total,
+            "pay_group": employee.pay_group,
+            "pay_level": employee.pay_level,
+        }
+    # collect data for employees from payrolls
+    for employee in payrolls.persons:
+        d = data.get(f"{employee.last_name}, {employee.first_name}", {})
+        d["payroll"] = {
+            "hours": employee.hours,
+            "pay_group": employee.pay_group,
+            "pay_level": employee.pay_level,
+        }
+        data[f"{employee.last_name}, {employee.first_name}"] = d
+    return data
+
+
+@login_required
+def employee_check_sage_payroll(request):
+    """
+    View to check a Sage Payroll
+    """
+    data = None
+    payroll_date = None
+    if request.method == "POST":
+        form = EmployeeCheckSagePayrollForm(request.POST, request.FILES)
+        if form.is_valid():
+            f = form.cleaned_data["file_pdf"]
+            payrolls = SagePayrolls(f)
+            data = _payrolls_data(payrolls)
+            payroll_date = payrolls.date
+    else:
+        form = EmployeeCheckSagePayrollForm()
+
+    return render(
+        request,
+        "kitamanager/employee_check_sage_payroll.html",
+        {"form": form, "data": data, "payroll_date": payroll_date},
     )
 
 

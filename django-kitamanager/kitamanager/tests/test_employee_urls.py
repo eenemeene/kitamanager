@@ -57,6 +57,13 @@ def test_employeepayment_detail(admin_client):
 
 
 @pytest.mark.django_db
+def test_employee_check_sage_payroll(admin_client):
+    # should be 404 for an unknown EmployeePaymentPlan
+    response = admin_client.get(reverse("kitamanager:employee-check-sage-payroll"))
+    assert response.status_code == 200
+
+
+@pytest.mark.django_db
 def test_employee_charts_hours_group_by_area(admin_client):
     """
     Test the json response for employee charts hours group by area
