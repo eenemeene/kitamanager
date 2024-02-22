@@ -88,6 +88,9 @@ class ChildPaymentTableAdmin(admin.ModelAdmin):
 
 
 class ChildPaymentTableEntryAdmin(admin.ModelAdmin):
-    list_display = ["table", "age", "name", "pay", "requirement"]
-    list_filter = ["table", "name", "age"]
+    list_display = ["table", "age_start", "age_end", "name", "pay", "requirement"]
+    list_filter = [
+        "table",
+        "name",
+    ]
     search_fields = ["name", "pay", "requirement"]

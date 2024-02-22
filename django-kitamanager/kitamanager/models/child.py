@@ -112,7 +112,8 @@ class ChildContract(PersonContract):
             table__plan=self.pay_plan,
             table__start__lte=date,
             table__end__gt=date,
-            age__contains=self.person.age(date),
+            age_start__lte=self.person.age(date),
+            age_end__gte=self.person.age(date),
             name__in=pay_tags_with_base,
         )
         return qs.aggregate(models.Sum("pay"))["pay__sum"]
@@ -139,7 +140,8 @@ class ChildContract(PersonContract):
 
         qs = ChildPaymentTableEntry.objects.filter(
             table=table,
-            age__contains=self.person.age(date),
+            age_start__lte=self.person.age(date),
+            age_end__gte=self.person.age(date),
             name__in=pay_tags_with_base,
         )
         sum = qs.aggregate(models.Sum("requirement"))["requirement__sum"]

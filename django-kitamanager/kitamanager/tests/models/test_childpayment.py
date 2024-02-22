@@ -120,15 +120,19 @@ def test_childpaymenttableentry_create():
     t22 = ChildPaymentTable.objects.create(plan=p2, start="2021-01-01", end="2021-12-31")
 
     # same table/age/name should work in different tables
-    ChildPaymentTableEntry.objects.create(table=t11, age=[0, 1], name="ganztag", pay=100, requirement=0.1)
-    ChildPaymentTableEntry.objects.create(table=t12, age=[0, 1], name="ganztag", pay=100, requirement=0.1)
-    ChildPaymentTableEntry.objects.create(table=t21, age=[0, 1], name="ganztag", pay=100, requirement=0.1)
-    ChildPaymentTableEntry.objects.create(table=t22, age=[0, 1], name="ganztag", pay=100, requirement=0.1)
+    ChildPaymentTableEntry.objects.create(table=t11, age_start=0, age_end=1, name="ganztag", pay=100, requirement=0.1)
+    ChildPaymentTableEntry.objects.create(table=t12, age_start=0, age_end=1, name="ganztag", pay=100, requirement=0.1)
+    ChildPaymentTableEntry.objects.create(table=t21, age_start=0, age_end=1, name="ganztag", pay=100, requirement=0.1)
+    ChildPaymentTableEntry.objects.create(table=t22, age_start=0, age_end=1, name="ganztag", pay=100, requirement=0.1)
 
     # different age/name should work in the same table
-    ChildPaymentTableEntry.objects.create(table=t11, age=[0, 1], name="ganztag_erweitert", pay=100, requirement=0.1)
-    ChildPaymentTableEntry.objects.create(table=t11, age=[0, 2], name="ganztag", pay=100, requirement=0.1)
+    ChildPaymentTableEntry.objects.create(
+        table=t11, age_start=0, age_end=1, name="ganztag_erweitert", pay=100, requirement=0.1
+    )
+    ChildPaymentTableEntry.objects.create(table=t11, age_start=0, age_end=2, name="ganztag", pay=100, requirement=0.1)
 
     # same table/age/name with different pay/requirement in the same table shouldn't work
     with pytest.raises(IntegrityError):
-        ChildPaymentTableEntry.objects.create(table=t11, age=[0, 1], name="ganztag_erweitert", pay=200, requirement=0.2)
+        ChildPaymentTableEntry.objects.create(
+            table=t11, age_start=0, age_end=1, name="ganztag_erweitert", pay=200, requirement=0.2
+        )
