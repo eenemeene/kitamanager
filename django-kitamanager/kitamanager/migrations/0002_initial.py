@@ -36,9 +36,7 @@ class Migration(migrations.Migration):
                 ("comment", models.TextField(blank=True, help_text="optional comment")),
                 (
                     "voucher",
-                    models.CharField(
-                        help_text="the voucher identifier", max_length=255
-                    ),
+                    models.CharField(help_text="the voucher identifier", max_length=255),
                 ),
             ],
             options={
@@ -367,9 +365,7 @@ class Migration(migrations.Migration):
                 ("end", models.DateField(help_text="end date")),
                 (
                     "pay",
-                    models.DecimalField(
-                        decimal_places=2, help_text="pay (in Euro)", max_digits=10
-                    ),
+                    models.DecimalField(decimal_places=2, help_text="pay (in Euro)", max_digits=10),
                 ),
                 ("comment", models.TextField(blank=True)),
             ],
@@ -405,9 +401,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "educational",
-                    models.BooleanField(
-                        help_text="is this area educational (so an educator, not eg. a cook) ?"
-                    ),
+                    models.BooleanField(help_text="is this area educational (so an educator, not eg. a cook) ?"),
                 ),
                 ("comment", models.TextField(blank=True)),
             ],
@@ -432,9 +426,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 "ordering": ("-name",),
-                "indexes": [
-                    models.Index(fields=["name"], name="kitamanager_name_8dfc24_idx")
-                ],
+                "indexes": [models.Index(fields=["name"], name="kitamanager_name_8dfc24_idx")],
             },
         ),
         migrations.CreateModel(
@@ -613,9 +605,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="bankaccountentry",
-            index=models.Index(
-                fields=["start", "end", "balance"], name="kitamanager_start_b9b0a4_idx"
-            ),
+            index=models.Index(fields=["start", "end", "balance"], name="kitamanager_start_b9b0a4_idx"),
         ),
         migrations.AddConstraint(
             model_name="bankaccountentry",
@@ -653,9 +643,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="childpaymenttable",
-            index=models.Index(
-                fields=["start", "end"], name="kitamanager_start_d3fcfd_idx"
-            ),
+            index=models.Index(fields=["start", "end"], name="kitamanager_start_d3fcfd_idx"),
         ),
         migrations.AddConstraint(
             model_name="childpaymenttable",
@@ -690,9 +678,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="employeepaymenttable",
-            index=models.Index(
-                fields=["start", "end", "hours"], name="kitamanager_start_695e21_idx"
-            ),
+            index=models.Index(fields=["start", "end", "hours"], name="kitamanager_start_695e21_idx"),
         ),
         migrations.AddConstraint(
             model_name="employeepaymenttable",
@@ -744,9 +730,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddIndex(
             model_name="revenueentry",
-            index=models.Index(
-                fields=["start", "end"], name="kitamanager_start_7186e0_idx"
-            ),
+            index=models.Index(fields=["start", "end"], name="kitamanager_start_7186e0_idx"),
         ),
         migrations.AddConstraint(
             model_name="revenueentry",
