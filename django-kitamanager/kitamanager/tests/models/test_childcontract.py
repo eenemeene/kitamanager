@@ -217,11 +217,11 @@ def test_childcontract_sum_requirements_multiple_paymentplans():
     """
     pp1 = ChildPaymentPlan.objects.create(name="plan1")
     ppt1 = ChildPaymentTable.objects.create(plan=pp1, start="2020-01-01", end="2022-01-01", hours=10)
-    ChildPaymentTableEntry.objects.create(table=ppt1, age=[0, 2], name="ganztag", pay=100, requirement=0.1)
+    ChildPaymentTableEntry.objects.create(table=ppt1, age_start=0, age_end=2, name="ganztag", pay=100, requirement=0.1)
 
     pp2 = ChildPaymentPlan.objects.create(name="plan2")
     ppt2 = ChildPaymentTable.objects.create(plan=pp2, start="2020-01-01", end="2022-01-01", hours=40)
-    ChildPaymentTableEntry.objects.create(table=ppt2, age=[0, 2], name="ganztag", pay=100, requirement=0.2)
+    ChildPaymentTableEntry.objects.create(table=ppt2, age_start=0, age_end=2, name="ganztag", pay=100, requirement=0.2)
 
     c1 = Child.objects.create(first_name="1", last_name="11", birth_date="2020-06-29")
     c1.refresh_from_db()

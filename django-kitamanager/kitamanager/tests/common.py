@@ -48,14 +48,20 @@ def _childpaymentplan_create():
     """
     plan1, _ = ChildPaymentPlan.objects.get_or_create(name="plan1")
     table1, _ = ChildPaymentTable.objects.get_or_create(plan=plan1, start="2020-01-01", end="2022-01-01")
-    ChildPaymentTableEntry.objects.get_or_create(table=table1, age=[0, 2], name="ganztag", pay=200, requirement=0.1)
     ChildPaymentTableEntry.objects.get_or_create(
-        table=table1, age=[0, 2], name="ganztag erweitert", pay=300, requirement=0.1
+        table=table1, age_start=0, age_end=2, name="ganztag", pay=200, requirement=0.1
+    )
+    ChildPaymentTableEntry.objects.get_or_create(
+        table=table1, age_start=0, age_end=2, name="ganztag erweitert", pay=300, requirement=0.1
     )
     # a second table (different date) with a "base" tag
     table2, _ = ChildPaymentTable.objects.get_or_create(plan=plan1, start="2024-01-01", end="2024-02-01")
-    ChildPaymentTableEntry.objects.get_or_create(table=table2, age=[0, 8], name="ganztag", pay=300, requirement=0.2)
-    ChildPaymentTableEntry.objects.get_or_create(table=table2, age=[0, 8], name="base", pay=22, requirement=0.33)
+    ChildPaymentTableEntry.objects.get_or_create(
+        table=table2, age_start=0, age_end=8, name="ganztag", pay=300, requirement=0.2
+    )
+    ChildPaymentTableEntry.objects.get_or_create(
+        table=table2, age_start=0, age_end=8, name="base", pay=22, requirement=0.33
+    )
     return plan1
 
 

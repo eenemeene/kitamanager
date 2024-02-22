@@ -72,7 +72,7 @@ def test_childpayment_detail(admin_client):
     # response with a plan
     p = ChildPaymentPlan.objects.create(name="plan1")
     t = ChildPaymentTable.objects.create(plan=p, start="2020-01-01", end="2020-12-31")
-    ChildPaymentTableEntry.objects.create(table=t, age=[0, 1], name="ganztag", pay=100, requirement=0.1)
+    ChildPaymentTableEntry.objects.create(table=t, age_start=0, age_end=1, name="ganztag", pay=100, requirement=0.1)
 
     response = admin_client.get(reverse("kitamanager:childpayment-detail", args=[p.pk]))
     assert response.status_code == 200

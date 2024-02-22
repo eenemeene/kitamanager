@@ -34,7 +34,11 @@ class Command(BaseCommand):
                     if value.get("comment"):
                         defaults_entry["comment"] = value["comment"]
                     table_entry, created = ChildPaymentTableEntry.objects.update_or_create(
-                        table=table, age=entry["age"], name=key, defaults=defaults_entry
+                        table=table,
+                        age_start=entry["age"][0],
+                        age_end=entry["age"][1],
+                        name=key,
+                        defaults=defaults_entry,
                     )
                     self.stdout.write(
                         self.style.SUCCESS(f"{plan}: table {table}: {key}:{value} (newly created? {created})")

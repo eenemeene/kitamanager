@@ -5,7 +5,6 @@ from django.contrib.postgres.fields import RangeOperators, RangeBoundary
 from django.contrib.postgres.constraints import ExclusionConstraint
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.urls import reverse
-from django.contrib.postgres.fields import IntegerRangeField
 from kitamanager.models.common import DateRange
 
 
@@ -92,8 +91,13 @@ class ChildPaymentTableEntry(models.Model):
     """
 
     table = models.ForeignKey("ChildPaymentTable", on_delete=models.CASCADE, related_name="entries")
-    age = IntegerRangeField(
-        help_text=_("age (in years) range for this property"), validators=[MinValueValidator(0), MaxValueValidator(8)]
+    age_start = models.PositiveSmallIntegerField(
+        help_text=_("age start (in years) range for this property"),
+        validators=[MinValueValidator(0), MaxValueValidator(8)],
+    )
+    age_end = models.PositiveSmallIntegerField(
+        help_text=_("age end (in years) range for this property"),
+        validators=[MinValueValidator(0), MaxValueValidator(8)],
     )
     name = models.CharField(max_length=255, help_text=_("property name"))
     pay = models.DecimalField(
@@ -105,16 +109,19 @@ class ChildPaymentTableEntry(models.Model):
     comment = models.TextField(blank=True)
 
     class Meta:
-        ordering = ("table", "age", "name")
+        ordering = ("table", "age_start", "age_end", "name")
         constraints = [
             models.UniqueConstraint(
-                fields=["table", "age", "name"],
-                name="%(app_label)s_%(class)s_table_age_name",
+                fields=["table", "age_start", "age_end", "name"],
+                name="%(app_label)s_%(class)s_table_age_start_age_end_name",
             )
         ]
         indexes = [
-            models.Index(fields=["age", "name", "pay", "requirement"]),
+            models.Index(fields=["age_start", "age_end", "name", "pay", "requirement"]),
         ]
 
     def __str__(self):
-        return f"{self.table}: age:{self.age}, name:{self.name}, pay:{self.pay}, req:{self.requirement}"
+        return (
+            f"{self.table}: age:{self.age_start}-{self.age_end}, "
+            f"name:{self.name}, pay:{self.pay}, req:{self.requirement}"
+        )
