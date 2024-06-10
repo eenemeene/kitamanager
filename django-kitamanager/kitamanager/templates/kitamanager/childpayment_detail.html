@@ -36,7 +36,7 @@
         </tr>
         {% for table_entry in table.entries.all %}
         <tr>
-          <td>{{ table_entry.age.lower }} - {{ table_entry.age.upper }}</td>
+          <td>{{ table_entry.age_start }} - {{ table_entry.age_end }}</td>
           <td>{{ table_entry.name }}</td>
           <td>{{ table_entry.pay }}</td>
           <td>{{ table_entry.requirement }}</td>
