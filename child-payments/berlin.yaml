@@ -12,11 +12,6 @@
     -
       age: [0,8]
       properties:
-        'base':
-          'payment': 0
-          # leitungsanteil
-          'requirement': 0.0118
-          'comment': 'Leitungsanteil'
         'integration a':
           'payment': 1498.11
           'requirement': 0.25
@@ -81,11 +76,6 @@
     -
       age: [0,8]
       properties:
-        'base':
-          'payment': 0
-          # leitungsanteil
-          'requirement': 0.0118
-          'comment': 'Leitungsanteil'
         'integration a':
           'payment': 1423.62
           'requirement': 0.25 
@@ -151,10 +141,6 @@
     -
       age: [0,8]
       properties:
-        'base':
-          'payment': 0
-          # leitungsanteil
-          'requirement': 0.0118
         'integration a':
           'payment': 1423.62
           'requirement': 0.25 
@@ -218,10 +204,6 @@
     -
       age: [0,8]
       properties:
-        'base':
-          'payment': 0
-          # leitungsanteil
-          'requirement': 0.0118
         'integration a':
           'payment': 1415.01
           'requirement': 0.25
@@ -285,10 +267,6 @@
     -
       age: [0,8]
       properties:
-        'base':
-          'payment': 0
-          # leitungsanteil
-          'requirement': 0.0118
         'integration a':
           'payment': 1389.64
           'requirement': 0.25
@@ -353,10 +331,6 @@
     -
       age: [0,8]
       properties:
-        'base':
-          'payment': 0
-          # leitungsanteil
-          'requirement': 0.0118
         'integration a':
           'payment': 1377.07
           'requirement': 0.25
@@ -419,10 +393,6 @@
     -
       age: [0,8]
       properties:
-        'base':
-          'payment': 0
-          # leitungsanteil
-          'requirement': 0.0111
         'integration a':
           'payment': 1377.07
           'requirement': 0.25
@@ -487,10 +457,6 @@
     -
       age: [0,8]
       properties:
-        'base':
-          'payment': 0
-          # leitungsanteil
-          'requirement': 0.0111
         'integration a':
           'payment': 1188.36
           'requirement': 0.25
