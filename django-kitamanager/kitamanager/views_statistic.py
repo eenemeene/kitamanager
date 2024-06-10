@@ -39,10 +39,12 @@ def statistic_charts_child_requirement_vs_employee_hours(request):
         # children requirements
         sum_requirements, sum_requirements_hours_per_week = ChildContract.objects.sum_requirements(current)
         datasets[0]["data"].append(sum_requirements_hours_per_week)
-        # employee working hours (child and team hours only)
+        # employee working hours (child + team hours + mgmt hours only)
         sum_hours = EmployeeContract.objects.sum_hours(current)
-        sum_hours_child_team = sum_hours["hours_child_sum"] + sum_hours["hours_team_sum"]
-        datasets[1]["data"].append(sum_hours_child_team)
+        sum_hours_child_team_mgmt = (
+            sum_hours["hours_child_sum"] + sum_hours["hours_team_sum"] + sum_hours["hours_management_sum"]
+        )
+        datasets[1]["data"].append(sum_hours_child_team_mgmt)
         current = current + relativedelta(months=1)
 
     return JsonResponse(
@@ -80,12 +82,14 @@ def statistic_charts_child_requirement_vs_employee_hours_percent(request):
         labels.append(current.strftime("%Y-%m"))
         # children requirements
         sum_requirements, sum_requirements_hours_per_week = ChildContract.objects.sum_requirements(current)
-        # employee working hours (child and team hours only)
+        # employee working hours (child + team + mgmt hours only)
         sum_hours = EmployeeContract.objects.sum_hours(current)
-        sum_hours_child_team = sum_hours["hours_child_sum"] + sum_hours["hours_team_sum"]
+        sum_hours_child_team_mgmt = (
+            sum_hours["hours_child_sum"] + sum_hours["hours_team_sum"] + sum_hours["hours_management_sum"]
+        )
         # in percent above/below 100%
         if sum_requirements_hours_per_week > 0:
-            x = (sum_hours_child_team / sum_requirements_hours_per_week * 100) - 100
+            x = (sum_hours_child_team_mgmt / sum_requirements_hours_per_week * 100) - 100
         else:
             x = 0
         datasets[0]["data"].append(x)
