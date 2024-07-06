@@ -123,7 +123,7 @@ class RevenueEntryAdmin(admin.ModelAdmin):
                             child_db.voucher = voucher
                             child_db.save()
 
-                return redirect(reverse("admin:kitamanager_revenueentry_changelist"))
+                return redirect(reverse("kitamanager:child-statistics"))
         else:
             form = BerlinInvoiceImportForm()
 

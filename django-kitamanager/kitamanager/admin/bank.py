@@ -65,7 +65,7 @@ class BankAccountEntryAdmin(admin.ModelAdmin):
                     else:
                         messages.success(request, _(f"bank account entry {baentry} updated successful"))
 
-                return redirect(reverse("admin:kitamanager_bankaccountentry_changelist"))
+                return redirect(reverse("kitamanager:bankaccount-list"))
         else:
             form = BankAccountEntryImportForm()
         context["form"] = form
