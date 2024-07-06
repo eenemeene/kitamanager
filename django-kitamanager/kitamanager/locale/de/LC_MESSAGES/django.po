@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kitamanager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-06 07:41+0200\n"
-"PO-Revision-Date: 2024-07-06 07:47+0200\n"
+"POT-Creation-Date: 2024-07-06 08:03+0200\n"
+"PO-Revision-Date: 2024-07-06 08:04+0200\n"
 "Last-Translator: Thomas Bechtold <thomasbechtold@jpberlin.de>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -465,7 +465,11 @@ msgstr "Die Anzahl der Kinder über die Jahre"
 msgid "Calculated children payment vs. invoice"
 msgstr "Berechnete Kinderbezahlung gegenüber Rechnungen"
 
-#: django-kitamanager/kitamanager/templates/kitamanager/child_statistics.html:29
+#: django-kitamanager/kitamanager/templates/kitamanager/child_statistics.html:27
+msgid "import invoice"
+msgstr "Senatsabrechnung importieren"
+
+#: django-kitamanager/kitamanager/templates/kitamanager/child_statistics.html:30
 msgid ""
 "The calculated child payment is based on the payment plan used for each "
 "child. The invoice is the money usually received from the government "
@@ -902,7 +906,7 @@ msgstr "Anforderungen (in %%)"
 #: django-kitamanager/kitamanager/views_statistic.py:100
 #, python-format
 msgid "Children requirements vs. Employee working hours in % over 100"
-msgstr ""
+msgstr "Kinder Anforderungen vs. Mitarbeiter Arbeitsstunden in % ueber 100%%"
 
 #~ msgid ""
 #~ "\n"
