@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from django.contrib.auth import views as auth_views
 from kitamanager.views_employee import (
     employee_list,
+    employee_list_csv,
     employee_detail,
     employee_statistics,
     employee_bonuspayment,
@@ -15,6 +16,7 @@ from kitamanager.views_employee import (
 from kitamanager.views_bank import bankaccount_list, bankaccount_charts_sum_balance_by_month
 from kitamanager.views_child import (
     child_list,
+    child_list_csv,
     child_list_future,
     child_detail,
     child_statistics,
@@ -42,6 +44,7 @@ urlpatterns = [
     path("employeepayment/", employeepayment_list, name="employeepayment-list"),
     path("employeepayment/<str:plan>/", employeepayment_detail, name="employeepayment-detail"),
     path("employee/", employee_list, name="employee-list"),
+    path("employee/csv/", employee_list_csv, name="employee-list-csv"),
     path("employee/statistics/", employee_statistics, name="employee-statistics"),
     path("employee/bonus/", employee_bonuspayment, name="employee-bonuspayment"),
     path("employee/check-sage-payroll", employee_check_sage_payroll, name="employee-check-sage-payroll"),
@@ -58,6 +61,7 @@ urlpatterns = [
     ),
     # child
     path("child/", child_list, name="child-list"),
+    path("child/csv/", child_list_csv, name="child-list-csv"),
     path("child/future/", child_list_future, name="child-list-future"),
     path("child/statistics/", child_statistics, name="child-statistics"),
     path("child/<int:pk>/", child_detail, name="child-detail"),

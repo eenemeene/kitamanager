@@ -1,4 +1,5 @@
 import pytest
+import datetime
 from django.urls import reverse
 from kitamanager.models import Child, ChildPaymentPlan, ChildPaymentTable, ChildPaymentTableEntry
 from kitamanager.tests.common import _childcontract_create, _childpaymentplan_create
@@ -9,6 +10,19 @@ def test_child_list(admin_client):
     response = admin_client.get(reverse("kitamanager:child-list"))
     assert response.context["object_list"].count() == 0
     assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_child_list_csv(admin_client):
+    historydate = datetime.date.today()
+    response = admin_client.get(reverse("kitamanager:child-list-csv"))
+    assert response.status_code == 200
+    assert response.headers["Content-Type"] == "text/csv"
+    assert response.headers["Content-Disposition"] == f'attachment; filename="child-list-{historydate}.csv"'
+    assert (
+        response.content.decode()
+        == "ID,First Name,Last Name,Age,Voucher,Area,Pay tags,Requirement (full time person),Payment (Euro)\r\n"
+    )
 
 
 @pytest.mark.django_db

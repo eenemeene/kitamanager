@@ -1,4 +1,5 @@
 import pytest
+import datetime
 from django.urls import reverse
 from kitamanager.tests.common import _employeecontract_create
 from kitamanager.models import Employee, EmployeePaymentPlan, Area
@@ -19,6 +20,20 @@ def test_employee_list(admin_client):
     response = admin_client.get(reverse("kitamanager:employee-list") + "?historydate=2019-01-01")
     assert response.context["object_list"].count() == 1
     assert response.status_code == 200
+
+
+@pytest.mark.django_db
+def test_employee_list_csv(admin_client):
+    historydate = datetime.date.today()
+    response = admin_client.get(reverse("kitamanager:employee-list-csv"))
+    assert response.status_code == 200
+    assert response.headers["Content-Type"] == "text/csv"
+    assert response.headers["Content-Disposition"] == f'attachment; filename="employee-list-{historydate}.csv"'
+    assert (
+        response.content.decode() == "ID,First Name,Last Name,Begin date,pay plan,pay group,pay level,pay "
+        "level next,area,qualification,hours child per week,hours management per week,"
+        "hours team per week,hours misc per week,monthly salary (Euro)\r\n"
+    )
 
 
 @pytest.mark.django_db
