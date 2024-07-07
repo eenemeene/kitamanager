@@ -90,6 +90,7 @@
 <div class="box">
   <h5 class="title">
     {{ object_list.count }} {% translate "employees" %} ({{ historydate }})
+    <a class="button is-link is-small is-outlined" href="{% url 'kitamanager:employee-list-csv' %}?historydate={{ historydate|date:"Y-m-d" }}">{% translate "download as .csv" %}</a>
   </h5>
   {% include "kitamanager/employeecontract_table.inc.html" with object_list=object_list %}
 </div>

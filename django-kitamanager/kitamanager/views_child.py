@@ -7,8 +7,9 @@ from django.shortcuts import render
 from kitamanager.forms import HistoryDateForm
 from kitamanager.models import Child, ChildContract, ChildPaymentPlan, ChildPaymentTable, RevenueEntry
 from dateutil.relativedelta import relativedelta
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from kitamanager.definitions import CHART_COLORS, REVENUE_NAME_BERLIN
+import csv
 
 
 @login_required
@@ -37,6 +38,57 @@ def child_list(request):
         "kitamanager/child_list.html",
         context=context,
     )
+
+
+@login_required
+def child_list_csv(request):
+    """
+    Get a list of children for the given date as CSV
+    """
+    historydate = datetime.date.today()
+    if request.method == "GET":
+        form = HistoryDateForm(request.GET)
+        if form.is_valid():
+            historydate = form.cleaned_data["historydate"]
+        else:
+            form = HistoryDateForm(initial={"historydate": historydate.strftime("%Y-%m-%d")})
+    else:
+        form = HistoryDateForm()
+
+    response = HttpResponse(
+        content_type="text/csv",
+        headers={"Content-Disposition": f'attachment; filename="child-list-{historydate}.csv"'},
+    )
+    writer = csv.writer(response)
+    # header row
+    writer.writerow(
+        [
+            "ID",
+            "First Name",
+            "Last Name",
+            "Age",
+            "Voucher",
+            "Area",
+            "Pay tags",
+            "Requirement (full time person)",
+            "Payment (Euro)",
+        ]
+    )
+    for child in ChildContract.objects.by_date(historydate):
+        writer.writerow(
+            [
+                child.person.pk,
+                child.person.first_name,
+                child.person.last_name,
+                child.person.age(historydate),
+                child.person.voucher,
+                child.area,
+                child.pay_tags,
+                child.requirement(historydate)[0],
+                child.payment(historydate),
+            ]
+        )
+    return response
 
 
 @login_required

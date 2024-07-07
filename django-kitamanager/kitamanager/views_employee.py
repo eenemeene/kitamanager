@@ -6,10 +6,11 @@ from kitamanager.forms import HistoryDateForm, EmployeeBonusPaymentForm, Employe
 from kitamanager.sage_payroll import SagePayrolls
 from django.utils.translation import gettext_lazy as _
 import datetime
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from kitamanager.definitions import CHART_COLORS, SALARY_EMPLOYER_ADDITION
 from decimal import Decimal
 from typing import Dict, List
+import csv
 
 
 @login_required
@@ -44,6 +45,69 @@ def employee_list(request):
         "kitamanager/employee_list.html",
         context=context,
     )
+
+
+@login_required
+def employee_list_csv(request):
+    """
+    list available Employee for the given historydate and return as CSV
+    """
+    historydate = datetime.date.today()
+    if request.method == "GET":
+        form = HistoryDateForm(request.GET)
+        if form.is_valid():
+            historydate = form.cleaned_data["historydate"]
+        else:
+            form = HistoryDateForm(initial={"historydate": historydate.strftime("%Y-%m-%d")})
+    else:
+        form = HistoryDateForm()
+
+    response = HttpResponse(
+        content_type="text/csv",
+        headers={"Content-Disposition": f'attachment; filename="employee-list-{historydate}.csv"'},
+    )
+    writer = csv.writer(response)
+    # header row
+    writer.writerow(
+        [
+            "ID",
+            "First Name",
+            "Last Name",
+            "Begin date",
+            "pay plan",
+            "pay group",
+            "pay level",
+            "pay level next",
+            "area",
+            "qualification",
+            "hours child per week",
+            "hours management per week",
+            "hours team per week",
+            "hours misc per week",
+            "monthly salary (Euro)",
+        ]
+    )
+    for employee in EmployeeContract.objects.by_date(date=historydate):
+        writer.writerow(
+            [
+                employee.person.pk,
+                employee.person.first_name,
+                employee.person.last_name,
+                employee.person.begin_date,
+                employee.pay_plan.name,
+                employee.pay_group,
+                employee.pay_level,
+                employee.person.pay_level_next(historydate),
+                employee.area.name,
+                employee.qualification.name,
+                employee.hours_child,
+                employee.hours_management,
+                employee.hours_team,
+                employee.hours_misc,
+                employee.person.salary(historydate),
+            ]
+        )
+    return response
 
 
 @login_required
