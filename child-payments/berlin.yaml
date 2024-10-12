@@ -4,6 +4,71 @@
 # the data is mostly based on the Kostenblatt files from https://www.daks-berlin.de/themen/finanzierung
 
 -
+  to: '2060-11-01'
+  from: '2024-11-01'
+  comment: |
+    Aufschlag für Praxisunterstützungssystem (60€ pro Kind/Jahr) und Digitalisierung (2,50€ pro Kind/Monat) inklusive
+  entries:
+    -
+      age: [0,8]
+      properties:
+        'integration a':
+          'payment': 1565.66
+          'requirement': 0.25
+        'integration b':
+          'payment': 3124.40
+          'requirement': 0.5
+        'ndh':
+          'payment': 97.09
+          'requirement': 0.017
+        'qm/mss':
+          'payment': 57.11
+          'requirement': 0.01
+    - age: [0,1]
+      properties:
+        'ganztag erweitert':
+          'payment': 1896.61
+          'requirement': 0.276
+        'ganztag':
+          'payment': 1815.23
+          'requirement': 0.261
+        'teilzeit':
+          'payment': 1457.13
+          'requirement': 0.195
+        'halbtag':
+          'payment': 1158.73
+          'requirement': 0.14
+    - age: [2,2]
+      properties:
+        'ganztag erweitert':
+          'payment': 1598.20
+          'requirement': 0.221
+        'ganztag':
+          'payment': 1516.81
+          'requirement': 0.206
+        'teilzeit':
+          'payment': 1283.51
+          'requirement': 0.163
+        'halbtag':
+          'payment': 1061.07
+          'requirement': 0.122
+    - age: [3,8]
+      properties:
+        'ganztag erweitert':
+          'payment': 1071.92
+          'requirement': 0.124
+        'ganztag':
+          'payment': 990.53
+          'requirement': 0.109
+        'teilzeit':
+          'payment': 882.02
+          'requirement': 0.089
+        'halbtag':
+          'payment': 778.93
+          'requirement': 0.07
+
+
+-
   to: '2024-11-01'
   from: '2024-10-01'
   comment: |
