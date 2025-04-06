@@ -48,8 +48,12 @@ class SagePayrolls:
                 assert pay_level >= 1 and pay_level <= 6
                 hours = Decimal(parts[4])
                 assert hours >= 0 and hours <= 40
+                # < 2025 have name in the same line, later name is in next line
+                # eg. later it is: ['TV-EM S6 (3)  30 h', 'Firstname Lastname']
                 first_name = parts[5][1:]
                 last_name = " ".join(parts[6:])
+                if not first_name:
+                    first_name, last_name = text_split[count + 1].split(" ")
                 return PayrollPerson(
                     first_name=first_name, last_name=last_name, hours=hours, pay_group=pay_group, pay_level=pay_level
                 )
