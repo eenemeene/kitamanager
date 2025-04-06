@@ -53,7 +53,7 @@ class SagePayrolls:
                 first_name = parts[5][1:]
                 last_name = " ".join(parts[6:])
                 if not first_name:
-                    first_name, last_name = text_split[count + 1].split(" ")
+                    first_name, last_name = text_split[count + 1].split(" ", maxsplit=1)
                 return PayrollPerson(
                     first_name=first_name, last_name=last_name, hours=hours, pay_group=pay_group, pay_level=pay_level
                 )
