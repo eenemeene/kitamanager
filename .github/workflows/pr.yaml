@@ -56,7 +56,7 @@ jobs:
           echo "DJANGO_KITAMANAGER_VERSION=$(cd django-kitamanager && python -m setuptools_scm)" >> $GITHUB_ENV
       - name: Docker meta
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
           images: |
             ghcr.io/eenemeene/kitamanager
