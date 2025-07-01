@@ -33,7 +33,7 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Install tox and any other packages
         run: pip install tox
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Run tox
         run: |
           # the content of the dev-progres env vars must match what is set wtih POSTGRES_{PASSWORD,USER}
