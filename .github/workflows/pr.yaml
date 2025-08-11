@@ -33,7 +33,7 @@ jobs:
           python-version: ${{ matrix.python }}
       - name: Install tox and any other packages
         run: pip install tox
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Run tox
         run: |
           # the content of the dev-progres env vars must match what is set wtih POSTGRES_{PASSWORD,USER}
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           # both required for setuptools_scm to produce a correct version
           fetch-depth: 0
