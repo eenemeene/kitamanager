@@ -24,7 +24,12 @@ class BerlinInvoice:
     @property
     def date(self) -> datetime.date:
         ws = self.wb["Abrechnungsübersicht"]
-        return datetime.datetime.strptime(ws["D28"].value, "%m/%y").date()
+        # older (than 2025-07) senatsabrechnungen have the date in the cell D28, newer in I18
+        value = ws["D28"].value
+        if not value:
+            value = ws["I18"].value
+
+        return datetime.datetime.strptime(value, "%m/%y").date()
 
     @property
     def pay(self) -> Optional[Decimal]:
@@ -34,9 +39,11 @@ class BerlinInvoice:
         ws = self.wb["Abrechnungsübersicht"]
         for cell in ws["A"]:
             if cell.value == "Summe:":
-                return Decimal(self._interface.calc_cell(f"D{cell.row}", "Abrechnungsübersicht")).quantize(
-                    Decimal("0.00")
-                )
+                # older (than 2025-07) senatsabrechnungen have the summe in the column D, newer in I
+                value = self._interface.calc_cell(f"D{cell.row}", "Abrechnungsübersicht")
+                if not value:
+                    value = self._interface.calc_cell(f"I{cell.row}", "Abrechnungsübersicht")
+                return Decimal(value).quantize(Decimal("0.00"))
         raise Exception("Unable to find Summe from Abrechnungsuebersicht")
 
     @property
