@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:noble
 
 MAINTAINER thomasbechtold@jpberlin.de
 ARG VERSION=unknown
